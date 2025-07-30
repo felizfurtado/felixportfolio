@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felix Furtado - Interactive Resume</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --cream-white: #d0cbb1;
+        --coffee-brown: #7c5a45;
+        --deep-olive-black: #05100b;
+        --main: #1d2e28;
+        --accent-glow: rgba(208, 203, 177, 0.15);
+        --font-primary: "Anton", sans-serif;
+        --font-secondary: "Oswald", sans-serif;
+      }
+
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+
+      /* Cosmic Glow Effect */
+      @keyframes cosmicGlow {
+        0% {
+          box-shadow: 0 0 15px var(--accent-glow);
+        }
+        50% {
+          box-shadow: 0 0 30px var(--accent-glow);
+        }
+        100% {
+          box-shadow: 0 0 15px var(--accent-glow);
+        }
+      }
+
+
+
+      body {
+        background-color: var(--deep-olive-black);
+        color: var(--cream-white);
+        font-family: var(--font-secondary);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Cyberpunk Navbar */
+       .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 4rem;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: var(--cream-white);
+      }
+
+      .nav-left,
+      .nav-center,
+      .nav-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-left {
+        justify-content: flex-start;
+      }
+
+      .nav-right {
+        justify-content: flex-end;
+        cursor: pointer;
+      }
+
+       .logo {
+        font-family: var(--font-subtitle);
+        cursor: pointer;
+        z-index: 10;
+
+        /* font-weight: bold; */
+        letter-spacing: 2px;
+      }
+
+      .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 80%;
+        position: relative;
+        gap: 2rem;
+        padding: 0 4rem;
+      }
+
+      .cyber-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--cream-white);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid var(--coffee-brown);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .start-project-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--main);
+        color: var(--cream-white);
+        padding: 0.75rem 1.5rem;
+        /* border-radius: 50px; */
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .start-project-btn i {
+        font-size: 1.2rem;
+      }
+
+      
+
+     
+
+      .resume-container {
+        max-width: 1200px;
+        margin: 4rem auto 4rem;
+        padding: 3rem;
+        background: rgba(5, 16, 11, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(123, 90, 69, 0.3);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .resume-container::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          transparent 0%,
+          rgba(123, 90, 69, 0.05) 70%
+        );
+        animation: rotate 60s linear infinite;
+        z-index: -1;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .resume-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+      }
+
+      .resume-name {
+        font-family: var(--font-primary);
+        font-size: 5rem;
+        color: var(--cream-white);
+        margin-bottom: 0.5rem;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        text-shadow: 0 0 10px rgba(208, 203, 177, 0.3);
+        position: relative;
+      }
+
+      .resume-title {
+        font-family: var(--font-secondary);
+        font-size: 1.8rem;
+        color: var(--coffee-brown);
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-card {
+        padding: 1.5rem;
+        background: rgba(5, 16, 11, 0.5);
+        border: 1px solid rgba(123, 90, 69, 0.2);
+        transition: all 0.4s ease;
+        display: flex;
+        /* align-items: center; */
+        gap: 1rem;
+      }
+
+      .contact-card:hover {
+        background: rgba(123, 90, 69, 0.1);
+        transform: translateY(-5px);
+      }
+
+      .contact-icon {
+        font-size: 1.8rem;
+        color: var(--coffee-brown);
+      }
+
+      /* Glowing Section Titles */
+      .section-title {
+        font-family: var(--font-primary);
+        font-size: 3rem;
+        color: var(--cream-white);
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, var(--coffee-brown), transparent);
+      }
+
+      /* Timeline Experience */
+      .timeline {
+        position: relative;
+        margin-left: 1rem;
+        padding-left: 2rem;
+        border-left: 2px solid var(--coffee-brown);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 3rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -2.7rem;
+        top: 5px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: var(--coffee-brown);
+        border: 3px solid var(--deep-olive-black);
+        box-shadow: 0 0 0 2px var(--coffee-brown);
+      }
+
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-company {
+        font-family: var(--font-secondary);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--cream-white);
+      }
+
+      .timeline-date {
+        color: var(--coffee-brown);
+        font-weight: 300;
+      }
+
+      .timeline-position {
+        font-style: italic;
+        color: var(--coffee-brown);
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .timeline-desc {
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .project-highlight {
+        background: rgba(123, 90, 69, 0.1);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-left: 3px solid var(--coffee-brown);
+        transition: all 0.4s ease;
+      }
+
+      .project-highlight:hover {
+        background: rgba(123, 90, 69, 0.2);
+        transform: translateX(10px);
+      }
+
+      .project-title {
+        font-family: var(--font-secondary);
+        font-size: 1.3rem;
+        color: var(--cream-white);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      /* Tech Stack Grid */
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .tech-category {
+        background: rgba(5, 16, 11, 0.5);
+        padding: 1.5rem;
+        border: 1px solid rgba(123, 90, 69, 0.2);
+      }
+
+      .tech-title {
+        font-family: var(--font-secondary);
+        color: var(--coffee-brown);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+      }
+
+      .tech-tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin: 0.3rem;
+        background: rgba(123, 90, 69, 0.2);
+        color: var(--cream-white);
+        font-size: 0.8rem;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      .tech-tag:hover {
+        background: var(--coffee-brown);
+        transform: translateY(-3px);
+      }
+
+      /* Hexagonal Education Cards */
+      .education-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .education-card {
+        position: relative;
+        padding: 2rem;
+        background: rgba(5, 16, 11, 0.5);
+        border: 1px solid rgba(123, 90, 69, 0.2);
+        clip-path: polygon(
+          0 10%,
+          10% 0,
+          90% 0,
+          100% 10%,
+          100% 90%,
+          90% 100%,
+          10% 100%,
+          0% 90%,
+          0% 10%
+        );
+        transition: all 0.4s ease;
+      }
+
+      .education-card:hover {
+        background: rgba(123, 90, 69, 0.1);
+        transform: translateY(-10px);
+      }
+
+      .education-degree {
+        font-family: var(--font-secondary);
+        font-size: 1.3rem;
+        color: var(--cream-white);
+        margin-bottom: 0.5rem;
+      }
+
+      .education-school {
+        color: var(--coffee-brown);
+        font-style: italic;
+        margin-bottom: 0.5rem;
+      }
+
+      .education-year {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: var(--cream-white);
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+     
+
+    
+     
+
+      /* Responsive Adjustments */
+      @media (max-width: 1024px) {
+        .resume-name {
+          font-size: 3.5rem;
+        }
+        .resume-title {
+          font-size: 1.3rem;
+          letter-spacing: 5px;
+        }
+        .section-title {
+          font-size: 2.5rem;
+        }
+        .resume-container {
+          padding: 2rem 1.5rem;
+          margin-top: 6rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+       
+       .nav {
+          padding: 1.5rem;
+        }
+
+        .nav-left {
+          display: none;
+        }
+        .logo {
+          font-size: 26px !important;
+        }
+        .nav-right i {
+          font-size: 24px !important;
+        }
+        .resume-container {
+          padding: 2rem 1.5rem ;
+          margin-top: 6rem;
+        }
+        .resume-name {
+          font-size: 2.5rem;
+          letter-spacing: 3px;
+        }
+        .resume-title {
+          font-size: 1rem;
+          letter-spacing: 3px;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        .timeline {
+          margin-left: 0;
+          padding-left: 1.5rem;
+        }
+        .timeline-item::before {
+          left: -1.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles-js"></div>
+
+    <!-- Cyberpunk Navbar -->
+         <div class="nav">
+        <div class="nav-left">
+          <a href="contact.html" class="start-project-btn">
+            Start a Project
+            <!-- <i class="fa-solid fa-rocket"></i>  -->
+          </a>
+        </div>
+
+        <div class="nav-center">
+          <div class="logo" style="font-size: 28px">Felix Furtado</div>
+        </div>
+
+        <div class="nav-right">
+          <i class="fa-solid fa-bars" style="font-size: 28px"></i>
+        </div>
+      </div>
+
+    <!-- Holographic Resume Container -->
+    <div class="resume-container">
+      <!-- Neon Header -->
+      <div class="resume-header">
+        <h1 class="resume-name">FELIX FURTADO</h1>
+        <h2 class="resume-title">
+          PYTHON BACKEND DEVELOPER | AI INTEGRATION ENGINEER
+        </h2>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt contact-icon"></i>
+            <style>
+              .cc{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                
+              }
+            </style>
+            <div class="cc">
+              <h4>LOCATION</h4>
+              <p>Karwar, India</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-envelope contact-icon"></i>
+            <div class="cc">
+              <h4>EMAIL</h4>
+              <p>felixfurtado809@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-phone contact-icon"></i>
+            <div class="cc">
+              <h4>PHONE</h4>
+              <p>8762529770</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <section>
+        <h2 class="section-title">PROFESSIONAL PROFILE</h2>
+        <p class="timeline-desc">
+          Python backend developer experienced in <strong>Django</strong>,
+          <strong>LangChain</strong>, and integrating large language models into
+          real-world apps. Built AI chatbots with
+          <strong>Google GenAI</strong> and <strong>JSON Querying</strong>,
+          including an AI-powered e-commerce site with natural language shopping
+          commands. Skilled in <strong>RAG Pipelines</strong>,
+          <strong>LLM workflows</strong>, <strong>API Development</strong>,
+          <strong>JWT Authentication</strong>, and data handling with
+          <strong>Pandas</strong> and <strong>Matplotlib</strong>. Focused on
+          automation, scalable AI systems, and improving user experiences.
+        </p>
+      </section>
+
+      <!-- Technical Skills -->
+      <section>
+        <h2 class="section-title">TECHNICAL ARSENAL</h2>
+        <div class="tech-grid">
+          <div class="tech-category">
+            <h3 class="tech-title">Languages & Frameworks</h3>
+            <div>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Django REST</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">React</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3 class="tech-title">Backend Technologies</h3>
+            <div>
+              <span class="tech-tag">Microservices</span>
+              <span class="tech-tag">Celery</span>
+              <span class="tech-tag">JWT Tokens</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3 class="tech-title">AI/LLM Integration</h3>
+            <div>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Google GenAI</span>
+              <span class="tech-tag">OpenAI API</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">Fine-tuning</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3 class="tech-title">Data & DevOps</h3>
+            <div>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">AWS</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professional Experience -->
+      <section>
+        <h2 class="section-title">PROFESSIONAL JOURNEY</h2>
+        <div class="timeline">
+          <!-- Stratwings -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-company">STRATWINGS</h3>
+              <span class="timeline-date">May 2023 - Feb 2025</span>
+            </div>
+            <span class="timeline-position"
+              >Python Developer & Chief Technology Officer</span
+            >
+            <p class="timeline-desc">
+              Delivered scalable solutions across trading, e-commerce, and
+              education domains, supporting 1,500+ users and automating client
+              workflows across projects.
+            </p>
+
+            <!-- Projects -->
+            <div class="project-highlight">
+              <h4 class="project-title">
+                Acha Wala College – Engineering Colleges Data Scraping
+              </h4>
+              <ul class="timeline-desc">
+                <li>
+                  Developed college search platform using Django with filters
+                  for 500+ engineering colleges
+                </li>
+                <li>
+                  Built LangChain-powered chatbot with RAG handling 100+ daily
+                  queries
+                </li>
+                <li>
+                  Scraped data from 3 portals (Career360, CollegeDunia, Shiksha)
+                  mapping 500+ colleges
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-highlight">
+              <h4 class="project-title">Alphabots – Algorithmic Trading</h4>
+              <ul class="timeline-desc">
+                <li>
+                  Engineered 5+ trading strategies using Backtrader, Pandas, and
+                  Matplotlib
+                </li>
+                <li>
+                  Reduced manual effort and improved signal clarity for trading
+                  decisions
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Fabcoderz -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-company">FABCODERZ</h3>
+              <span class="timeline-date">Sept 2019 - Dec 2019</span>
+            </div>
+            <span class="timeline-position">Software Developer Intern</span>
+            <p class="timeline-desc">
+              Delivered a responsive EMI Calculator using Django, HTML, CSS, and
+              JavaScript, reducing manual EMI lookup time by 50%.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Projects -->
+      <section>
+        <h2 class="section-title">SIGNATURE PROJECTS</h2>
+
+        <div class="project-highlight">
+          <h3 class="project-title">Healthify | QR-Based Medical System</h3>
+          <ul class="timeline-desc">
+            <li>
+              Developed patient record system with Django handling 1,000+
+              medical records
+            </li>
+            <li>
+              Created REST APIs for QR code generation and real-time data access
+            </li>
+            <li>
+              Implemented MySQL with optimized indexing for faster retrieval
+            </li>
+            <li>Reduced manual lookup time by 60% using QR codes</li>
+          </ul>
+        </div>
+
+        <div class="project-highlight">
+          <h3 class="project-title">AI Hoodie Store Chatbot</h3>
+          <ul class="timeline-desc">
+            <li>
+              E-commerce platform with natural language search for 100+ SKUs
+            </li>
+            <li>
+              Built chatbot handling queries like "show black hoodies under
+              ₹500"
+            </li>
+            <li>Integrated RAG pipelines with LLM for accurate suggestions</li>
+            <li>Configured JWT auth for 1,000+ active users</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h2 class="section-title">ACADEMIC CREDENTIALS</h2>
+        <div class="education-container">
+          <div class="education-card">
+            <span class="education-year">2021-2023</span>
+            <h3 class="education-degree">M.Sc in Information Technology</h3>
+            <p class="education-school">Jain University, Bengaluru</p>
+          </div>
+          <div class="education-card">
+            <span class="education-year">2018-2021</span>
+            <h3 class="education-degree">B.Voc in Software Development</h3>
+            <p class="education-school">Smt. Parvatibai Chowgule College</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Additional Info -->
+      <section>
+        <h2 class="section-title">BEYOND CODE</h2>
+        <div class="project-highlight">
+          <ul class="timeline-desc">
+            <li>
+              <strong>Languages:</strong> English (Fluent), Hindi (Fluent),
+              Konkani (Native)
+            </li>
+            <li>
+              <strong>Research:</strong> Published papers on DNG to Cube
+              Converter and QR-Based Health Card
+            </li>
+            <li>
+              <strong>Open Source:</strong> Created DNG to Cube Python library
+              for color grading workflows
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Particle.js Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add floating animation
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes float {
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        10% { opacity: 0.3; }
+        90% { opacity: 0.3; }
+        100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  });
+</script>
+
+
+    <style>
+      .contact-cta {
+        padding: 4rem;
+        text-align: center;
+        background-color: var(--deep-olive-black);
+        border-top: 1px solid rgba(123, 90, 69, 0.3);
+        position: relative;
+        z-index: 8;
+      }
+      .contact-cta h2 {
+        font-family: var(--font-primary);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--cream-white);
+        letter-spacing: 1px;
+      }
+      .contact-cta p {
+        font-family: var(--font-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+      .contact-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+      }
+      .contact-links a {
+        color: var(--coffee-brown);
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+      .contact-links a:hover {
+        color: var(--cream-white);
+        transform: translateY(-3px);
+      }
+
+      /* Mobile tweaks */
+      @media (max-width: 768px) {
+        .contact-cta {
+          padding: 3rem 1.5rem;
+        }
+        .contact-cta h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+      <h2>READY TO COLLABORATE?</h2>
+      <p>
+        For freelance projects or engineering roles, reach me at<br />
+        <strong style="color: var(--coffee-brown)"
+          >felixfurtado809@gmail.com</strong
+        >
+      </p>
+      <div class="contact-links">
+        <a
+          href="https://github.com/felixfurtado"
+          target="_blank"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+
+        <a
+          href="https://linkedin.com/in/felixfurtado"
+          target="_blank"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+
+        <a href="tel:+1234567890" aria-label="Phone"
+          ><i class="fas fa-phone"></i
+        ></a>
+
+        <a
+          href="https://instagram.com/felizfurtado"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </section>
+
+
+
+    <style>
+  .nav-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(5, 16, 11, 0.98);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+    overflow: hidden;
+  }
+
+  .nav-popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-popup-content {
+    width: 90%;
+    height: 90vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    padding: 2rem;
+    gap: 1rem;
+    box-sizing: border-box;
+  }
+
+  .nav-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; 
+  }
+
+  .nav-popup-logo {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--cream-white);
+    letter-spacing: 3px;
+  }
+
+  .nav-popup-close {
+    font-size: 2rem;
+    color: var(--cream-white);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-popup-close:hover {
+    transform: rotate(90deg);
+    color: var(--coffee-brown);
+  }
+
+  .nav-popup-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh; 
+    height: 100%;
+    overflow: hidden; 
+  }
+
+  .nav-popup-link {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--cream-white);
+    text-decoration: none;
+    line-height: 1;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-popup-link:hover {
+    color: var(--coffee-brown);
+  }
+
+  .nav-popup-footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-popup-social {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-popup-social a {
+    color: var(--coffee-brown);
+    font-size: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .nav-popup-social a:hover {
+    color: var(--cream-white);
+  }
+
+  @media (max-height: 700px) {
+    .nav-popup-link {
+      font-size: clamp(2rem, 5vh, 3rem);
+      padding: 0.3rem 0;
+    }
+    .nav-popup-links {
+      gap: 0.5vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-popup-content {
+      padding: 1.5rem;
+    }
+    .nav-popup-logo {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<div class="nav-popup" id="navPopup">
+  <div class="nav-popup-content">
+    <div class="nav-popup-header">
+      <div class="nav-popup-logo">FELIX FURTADO</div>
+      <div class="nav-popup-close" id="navClose">&times;</div>
+    </div>
+    <nav class="nav-popup-links">
+      <a href="index.html" class="nav-popup-link">Home</a>
+      <a href="about.html" class="nav-popup-link">About</a>
+      <a href="projects.html" class="nav-popup-link">Projects</a>
+      <a href="contact.html" class="nav-popup-link">Contact</a>
+    </nav>
+    <div class="nav-popup-footer">
+      <div class="nav-popup-social">
+        <a href="https://github.com/felixfurtado" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/felixfurtado" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="tel:+1234567890"><i class="fas fa-phone"></i></a>
+        <a href="https://instagram.com/felizfurtado" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navButton = document.querySelector(".nav-right i");
+        const navPopup = document.getElementById("navPopup");
+        const navClose = document.getElementById("navClose");
+
+        navButton.addEventListener("click", function () {
+          navPopup.classList.add("active");
+          document.body.style.overflow = "hidden"; 
+        });
+
+        navClose.addEventListener("click", function () {
+          navPopup.classList.remove("active");
+          document.body.style.overflow = ""; 
+        });
+
+        navPopup.addEventListener("click", function (e) {
+          if (e.target === navPopup) {
+            navPopup.classList.remove("active");
+            document.body.style.overflow = ""; 
+          }
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && navPopup.classList.contains("active")) {
+            navPopup.classList.remove("active");
+            document.body.style.overflow = ""; 
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

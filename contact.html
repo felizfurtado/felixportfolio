@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Felix Furtado</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --cream-white: #d0cbb1;
+        --coffee-brown: #7c5a45;
+        --deep-olive-black: #05100b;
+        --pitch-black: #000000;
+        --main: #1d2e28;
+
+        --font-primary: "Anton", sans-serif;
+        --font-secondary: "Oswald", sans-serif;
+
+        --font-title: 72px;
+        --font-subtitle: 28px;
+        --font-body: 16px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--main);
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 4rem;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: var(--cream-white);
+        background-color: var(--deep-olive-black);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .nav-left,
+      .nav-center,
+      .nav-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-left {
+        justify-content: flex-start;
+      }
+
+      .nav-right {
+        justify-content: flex-end;
+        cursor: pointer;
+      }
+
+      .logo {
+        font-family: var(--font-subtitle);
+        letter-spacing: 2px;
+        z-index: 10;
+        cursor: pointer;
+
+      }
+
+      /* Contact Page Specific Styles */
+      .contact-section {
+        padding: 6rem 4rem;
+        background-color: var(--deep-olive-black);
+        min-height: calc(100vh - 160px);
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .contact-header {
+        margin-bottom: 3rem;
+      }
+
+      .contact-number {
+        font-family: var(--font-primary);
+        font-size: 8rem;
+        color: rgba(208, 203, 177, 0.1);
+        line-height: 0.8;
+        margin-bottom: 1rem;
+      }
+
+      .contact-title {
+        font-family: var(--font-primary);
+        font-size: 4rem;
+        color: var(--cream-white);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        line-height: 1;
+        margin-bottom: 1rem;
+      }
+
+      .contact-subtitle {
+        font-family: var(--font-secondary);
+        color: var(--coffee-brown);
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .contact-subtitle:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60%;
+        height: 2px;
+        background: var(--coffee-brown);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      .contact-icon {
+        font-size: 1.5rem;
+        color: var(--coffee-brown);
+        margin-top: 0.3rem;
+      }
+
+      .contact-details h3 {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        color: var(--cream-white);
+        margin-bottom: 0.5rem;
+        letter-spacing: 1px;
+      }
+
+      .contact-details p,
+      .contact-details a {
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-details a:hover {
+        color: var(--coffee-brown);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        color: var(--coffee-brown);
+        font-size: 1.5rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--cream-white);
+        transform: translateY(-3px);
+      }
+
+      .contact-form {
+        background-color: rgba(123, 90, 69, 0.1);
+        padding: 3rem;
+        border: 1px solid rgba(123, 90, 69, 0.3);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        background-color: transparent;
+        border: 1px solid var(--coffee-brown);
+        color: var(--cream-white);
+        font-family: var(--font-secondary);
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--cream-white);
+      }
+
+      .submit-btn {
+        background-color: var(--coffee-brown);
+        color: var(--cream-white);
+        border: none;
+        padding: 1rem 2rem;
+        font-family: var(--font-primary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        width: 100%;
+      }
+
+      .submit-btn:hover {
+        background-color: var(--cream-white);
+        color: var(--coffee-brown);
+      }
+
+      /* Footer */
+
+      .start-project-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--main);
+        color: var(--cream-white);
+        padding: 0.75rem 1.5rem;
+        /* border-radius: 50px; */
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .start-project-btn i {
+        font-size: 1.2rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1024px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .contact-number {
+          font-size: 6rem;
+        }
+
+        .contact-title {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          padding: 1.5rem;
+        }
+
+        .nav-left {
+          display: none;
+        }
+
+        .contact-section {
+          padding: 4rem 2rem;
+        }
+
+        .contact-number {
+          font-size: 4rem;
+        }
+
+        .contact-title {
+          font-size: 2rem;
+        }
+
+        .contact-form {
+          padding: 2rem;
+        }
+
+        .footer {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-left">
+        <a href="index.html" class="start-project-btn"> Back to Home </a>
+      </div>
+
+      <div class="nav-center">
+        <div class="logo" style="font-size: 28px">Felix Furtado</div>
+      </div>
+
+      <div class="nav-right">
+        <i class="fa-solid fa-bars" style="font-size: 28px"></i>
+      </div>
+    </nav>
+
+    <section class="contact-section">
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-header">
+            <!-- <div class="contact-number">03</div> -->
+
+            <h1 class="contact-title">Contact Me</h1>
+            <h2 class="contact-subtitle">Get In Touch</h2>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="mailto:felixfurtado809@gmail.com"
+                >felixfurtado809@gmail.com</a
+              >
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <a href="tel:+1234567890">+1 (234) 567-890</a>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>Based in Goa, India</p>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Availability</h3>
+              <p>Monday - Friday: 9AM - 5PM</p>
+              <p>Weekends: By appointment</p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a
+              href="https://github.com/felixfurtado"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/felixfurtado"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="tel:+1234567890" aria-label="Phone"
+              ><i class="fas fa-phone"></i
+            ></a>
+            <a
+              href="https://instagram.com/felizfurtado"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .contact-cta {
+        padding: 4rem;
+        text-align: center;
+        background-color: var(--deep-olive-black);
+        border-top: 1px solid rgba(123, 90, 69, 0.3);
+        position: relative;
+        z-index: 8;
+      }
+      .contact-cta h2 {
+        font-family: var(--font-primary);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--cream-white);
+        letter-spacing: 1px;
+      }
+      .contact-cta p {
+        font-family: var(--font-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+      .contact-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+      }
+      .contact-links a {
+        color: var(--coffee-brown);
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+      .contact-links a:hover {
+        color: var(--cream-white);
+        transform: translateY(-3px);
+      }
+
+      /* Mobile tweaks */
+      @media (max-width: 768px) {
+        .contact-cta {
+          padding: 3rem 1.5rem;
+        }
+        .contact-cta h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+      <h2>READY TO COLLABORATE?</h2>
+      <p>
+        For freelance projects or engineering roles, reach me at<br />
+        <strong style="color: var(--coffee-brown)"
+          >felixfurtado809@gmail.com</strong
+        >
+      </p>
+      <div class="contact-links">
+        <a
+          href="https://github.com/felixfurtado"
+          target="_blank"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+
+        <a
+          href="https://linkedin.com/in/felixfurtado"
+          target="_blank"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+
+        <a href="tel:+1234567890" aria-label="Phone"
+          ><i class="fas fa-phone"></i
+        ></a>
+
+        <a
+          href="https://instagram.com/felizfurtado"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </section>
+
+
+    <style>
+  .nav-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(5, 16, 11, 0.98);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+    overflow: hidden;
+  }
+
+  .nav-popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-popup-content {
+    width: 90%;
+    height: 90vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    padding: 2rem;
+    gap: 1rem;
+    box-sizing: border-box;
+  }
+
+  .nav-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; 
+  }
+
+  .nav-popup-logo {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--cream-white);
+    letter-spacing: 3px;
+  }
+
+  .nav-popup-close {
+    font-size: 2rem;
+    color: var(--cream-white);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-popup-close:hover {
+    transform: rotate(90deg);
+    color: var(--coffee-brown);
+  }
+
+  .nav-popup-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh; 
+    height: 100%;
+    overflow: hidden; 
+  }
+
+  .nav-popup-link {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--cream-white);
+    text-decoration: none;
+    line-height: 1;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-popup-link:hover {
+    color: var(--coffee-brown);
+  }
+
+  .nav-popup-footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-popup-social {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-popup-social a {
+    color: var(--coffee-brown);
+    font-size: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .nav-popup-social a:hover {
+    color: var(--cream-white);
+  }
+
+  @media (max-height: 700px) {
+    .nav-popup-link {
+      font-size: clamp(2rem, 5vh, 3rem);
+      padding: 0.3rem 0;
+    }
+    .nav-popup-links {
+      gap: 0.5vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-popup-content {
+      padding: 1.5rem;
+    }
+    .nav-popup-logo {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<div class="nav-popup" id="navPopup">
+  <div class="nav-popup-content">
+    <div class="nav-popup-header">
+      <div class="nav-popup-logo">FELIX FURTADO</div>
+      <div class="nav-popup-close" id="navClose">&times;</div>
+    </div>
+    <nav class="nav-popup-links">
+      <a href="index.html" class="nav-popup-link">Home</a>
+      <a href="about.html" class="nav-popup-link">About</a>
+      <a href="projects.html" class="nav-popup-link">Projects</a>
+      <a href="contact.html" class="nav-popup-link">Contact</a>
+    </nav>
+    <div class="nav-popup-footer">
+      <div class="nav-popup-social">
+        <a href="https://github.com/felixfurtado" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/felixfurtado" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="tel:+1234567890"><i class="fas fa-phone"></i></a>
+        <a href="https://instagram.com/felizfurtado" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navButton = document.querySelector(".nav-right i");
+        const navPopup = document.getElementById("navPopup");
+        const navClose = document.getElementById("navClose");
+
+        navButton.addEventListener("click", function () {
+          navPopup.classList.add("active");
+          document.body.style.overflow = "hidden"; 
+        });
+
+        navClose.addEventListener("click", function () {
+          navPopup.classList.remove("active");
+          document.body.style.overflow = ""; 
+        });
+
+        navPopup.addEventListener("click", function (e) {
+          if (e.target === navPopup) {
+            navPopup.classList.remove("active");
+            document.body.style.overflow = ""; 
+          }
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && navPopup.classList.contains("active")) {
+            navPopup.classList.remove("active");
+            document.body.style.overflow = ""; 
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

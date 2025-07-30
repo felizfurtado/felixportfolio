@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felix Furtado Portfolio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --cream-white: #d0cbb1;
+        --coffee-brown: #7c5a45;
+        --deep-olive-black: #05100b;
+        --pitch-black: #000000;
+        --main: #1d2e28;
+
+        --font-primary: "Anton", sans-serif;
+        --font-secondary: "Oswald", sans-serif;
+
+        --font-title: 72px;
+        --font-subtitle: 28px;
+        --font-body: 16px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--main);
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      .hero {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        /* padding: 2rem; */
+        background-color: var(--main);
+        position: sticky;
+        top: 0;
+        z-index: 4;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 4rem;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: var(--cream-white);
+      }
+
+      .nav-left,
+      .nav-center,
+      .nav-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-left {
+        justify-content: flex-start;
+      }
+
+      .start-project-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--deep-olive-black);
+        color: var(--cream-white);
+        padding: 0.75rem 1.5rem;
+        /* border-radius: 50px; */
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .start-project-btn i {
+        font-size: 1.2rem;
+      }
+
+      .nav-right {
+        justify-content: flex-end;
+        cursor: pointer;
+      }
+
+      .logo {
+        font-family: var(--font-subtitle);
+        cursor: pointer;
+        letter-spacing: 2px;
+        z-index: 10;
+      }
+
+      .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 80%;
+        position: relative;
+        gap: 2rem;
+        padding: 0 4rem;
+      }
+
+      /* .title {
+        width: 100%;
+        font-family: var(--font-primary);
+        font-size: 10vw;
+        line-height: 1;
+        text-align: center;
+        color: var(--cream-white);
+      } */
+
+      .title-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .title-left,
+      .title-right {
+        font-family: var(--font-primary);
+        font-size: 10vw;
+        line-height: 1;
+        color: var(--cream-white);
+        text-align: left;
+        flex: 1;
+      }
+
+      .title-right {
+        text-align: right;
+      }
+
+      .left-text,
+      .right-text {
+        flex: 1;
+        max-width: 300px;
+        font-size: var(--font-body);
+        line-height: 1.6;
+        font-family: var(--font-secondary);
+      }
+
+      .left-text {
+        text-align: left;
+        position: relative;
+        bottom: 10%;
+      }
+
+      .right-text {
+        text-align: right;
+        position: relative;
+        bottom: 10%;
+      }
+
+      .center-image {
+        position: absolute;
+        left: 29%;
+        top: -60%;
+        transform: translateX(-50%, -50%);
+        transform: scaleX(-1);
+        height: 800px;
+        width: 550px;
+        max-width: 90vw;
+        object-fit: contain;
+        z-index: 1;
+      }
+
+      .tagline {
+        width: 100%;
+        height: 80px;
+        background-color: var(--deep-olive-black);
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        z-index: 2;
+      }
+
+      .tagline::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tagline-content {
+        display: inline-flex;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .tagline span {
+        margin: 0 1.5rem;
+        font-size: 36px;
+        font-family: var(--font-secondary);
+        flex-shrink: 0;
+      }
+    </style>
+
+    <style>
+      @media (max-width: 768px) {
+        .nav {
+          padding: 1.5rem;
+        }
+
+        .nav-left {
+          display: none;
+        }
+        .logo {
+          font-size: 26px !important;
+        }
+        .nav-right i {
+          font-size: 24px !important;
+        }
+        .hero {
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          padding: 0 1.5rem;
+          position: relative;
+        }
+
+        .center-image {
+          width: 100%;
+          max-height: 100vh;
+          object-fit: contain;
+          position: absolute;
+          top: 70%;
+          left: 50%;
+          transform: translate(-50%);
+          z-index: 1;
+        }
+
+        .title-left {
+          font-size: 18vw;
+          text-align: center;
+          position: relative;
+          top: 2vh;
+          margin-bottom: 2rem;
+          z-index: 2;
+        }
+
+        .title-right {
+          display: none;
+        }
+
+        .right-text {
+          display: none;
+        }
+
+        .left-text {
+          position: relative;
+          max-width: 100%;
+          font-size: 1.1rem;
+          text-align: center;
+          margin: 0 auto;
+          /* top: 0vh;  */
+          z-index: 2;
+          padding: 4rem 1rem;
+        }
+
+        .tagline {
+          height: 70px;
+          flex-shrink: 0;
+          margin-top: auto;
+        }
+
+        .tagline span {
+          font-size: 24px;
+          margin: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="nav">
+        <div class="nav-left">
+          <a href="contact.html" class="start-project-btn">
+            Start a Project
+            <!-- <i class="fa-solid fa-rocket"></i>  -->
+          </a>
+        </div>
+
+        <div class="nav-center">
+          <div class="logo" style="font-size: 28px">Felix Furtado</div>
+        </div>
+
+        <div class="nav-right">
+          <i class="fa-solid fa-bars" style="font-size: 28px"></i>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="title-container">
+          <div class="title-left">FELIX<br />FURTADO</div>
+          <img
+            src="WhatsApp_Image_2025-07-28_at_9.14.59_PM-removebg-preview.png"
+            alt="Felix"
+            class="center-image"
+          />
+          <div class="title-right">
+            SOFTWARE<br />
+            ENGINEER
+          </div>
+        </div>
+
+        <div class="left-text">
+          <p>
+            I'm a <strong>Python developer</strong> building fast, scalable
+            digital tools with clean code and smart design. I blend
+            <strong>Backend</strong>
+            skills with sleek UI to craft seamless user experiences.
+          </p>
+        </div>
+
+        <div class="right-text">
+          <p>
+            A cutting-edge developer platform designed to revolutionize the way
+            people interact with technology. Exceptional
+            <strong>Engineering</strong> and <strong>UX</strong>.
+          </p>
+        </div>
+
+        <!-- <div class="badge">01</div> -->
+      </div>
+
+      <div class="tagline">
+        <div class="tagline-content">
+          <span>Digital Design</span> ✦ <span>Interaction Design</span> ✦
+          <span>Backend Engineering</span> ✦ <span>Django & API</span> ✦
+          <span>Open Source</span> ✦ <span>LLM</span>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .about-section {
+        padding: 6rem 4rem;
+        margin: 0 auto;
+        background-color: var(--deep-olive-black);
+        position: relative;
+        overflow: hidden;
+        z-index: 8;
+        /* height: 100vh; */
+      }
+
+      .about-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+        align-items: start;
+        height: 100%;
+      }
+
+      .about-heading {
+        position: sticky;
+        top: 6rem;
+      }
+
+      .about-number {
+        font-family: var(--font-primary);
+        font-size: 8rem;
+        color: rgba(208, 203, 177, 0.1);
+        line-height: 0.8;
+        margin-bottom: 2rem;
+      }
+
+      .about-title {
+        font-family: var(--font-primary);
+        font-size: 6rem;
+        color: var(--cream-white);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin-bottom: 1.5rem;
+        line-height: 1;
+      }
+
+      .about-subtitle {
+        font-family: var(--font-secondary);
+        color: var(--coffee-brown);
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 3rem;
+        display: inline-block;
+        position: relative;
+      }
+
+      .about-subtitle:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60%;
+        height: 2px;
+        background: var(--coffee-brown);
+      }
+
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      .about-paragraph {
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+
+      strong {
+        color: var(--coffee-brown);
+        font-weight: 500;
+      }
+
+      .about-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .skill-pill {
+        /* background: rgba(123, 90, 69, 0.2); */
+        /* background-color: var(--deep-olive-black); */
+        color: var(--cream-white);
+        padding: 0.6rem 1.4rem;
+        border-radius: 50px;
+        font-family: var(--font-secondary);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 1px solid var(--coffee-brown);
+      }
+
+      @media (max-width: 1024px) {
+        .about-container {
+          grid-template-columns: 1fr;
+        }
+
+        .about-heading {
+          position: static;
+        }
+
+        .about-number {
+          font-size: 6rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-section {
+          padding: 4rem 2rem;
+        }
+
+        .about-title {
+          font-size: 2.5rem;
+        }
+
+        .about-number {
+          font-size: 4rem;
+        }
+      }
+    </style>
+
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-heading">
+          <div class="about-number">01</div>
+          <h2 class="about-subtitle">The Developer</h2>
+          <h1 class="about-title">
+            Behind<br />
+            The Code
+          </h1>
+        </div>
+
+        <div class="about-content">
+          <p class="about-paragraph"></p>
+          <p class="about-paragraph">
+            I'm <strong>Felix Furtado</strong>, a full-stack
+            <strong>Python developer</strong> focused on building clean,
+            scalable systems. I work with <strong>Django</strong> and
+            <strong>Flask</strong> to create powerful backends, and integrate
+            <strong>REST APIs</strong>, <strong>Automation Tools</strong>, and
+            <strong>ML Features</strong> into real-world applications.
+          </p>
+
+          <p class="about-paragraph">
+            From <strong>Cloud Deployment</strong> to
+            <strong>Database Design</strong>, I bring a sharp eye for
+            performance and a passion for code that works beautifully. Every
+            project I take on blends smart architecture with practical
+            functionality.
+          </p>
+
+          <style>
+            .resume-button-wrap {
+              margin-top: 1rem;
+            }
+
+            .resume-button {
+              display: inline-block;
+              background-color: var(--coffee-brown);
+              color: var(--cream-white);
+
+              padding: 0.9rem 2rem;
+              font-size: 1rem;
+              font-family: var(--font-primary);
+              text-transform: uppercase;
+              letter-spacing: 2px;
+              /* border-radius: 50px; */
+              text-decoration: none;
+              /* transition: background 0.3s ease, transform 0.3s ease; */
+            }
+
+            .resume-button:hover {
+              background-color: var(--cream-white);
+              color: var(--coffee-brown);
+              transform: translateY(-2px);
+            }
+          </style>
+
+          <div class="resume-button-wrap">
+            <a href="resume.pdf" target="_blank" class="resume-button"
+              >Download Resume</a
+            >
+          </div>
+
+          <div class="about-skills">
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">JavaScript</div>
+            <div class="skill-pill">Django</div>
+            <div class="skill-pill">LangChain</div>
+            <div class="skill-pill">HTML</div>
+            <div class="skill-pill">CSS</div>
+            <div class="skill-pill">GSAP</div>
+            <div class="skill-pill">JSON</div>
+            <div class="skill-pill">REST APIs</div>
+            <div class="skill-pill">Mysql</div>
+            <div class="skill-pill">Pandas</div>
+            <div class="skill-pill">API Integration</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .projects-section {
+        padding: 6rem 4rem;
+        background-color: var(--deep-olive-black);
+        border-top: 1px solid rgba(123, 90, 69, 0.3);
+        position: relative;
+        z-index: 8;
+      }
+
+      .projects-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .projects-header {
+        background-color: var(--deep-olive-black);
+        padding: 6rem 0 2rem;
+        margin-top: -6rem;
+        z-index: 7;
+      }
+
+      .projects-number {
+        font-family: var(--font-primary);
+        font-size: 8rem;
+        color: rgba(208, 203, 177, 0.1);
+        line-height: 0.8;
+        margin-bottom: 1rem;
+      }
+
+      .projects-title {
+        font-family: var(--font-primary);
+        font-size: 6rem;
+        color: var(--cream-white);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        line-height: 1;
+      }
+
+      .projects-subtitle {
+        font-family: var(--font-secondary);
+        color: var(--coffee-brown);
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 2rem;
+      }
+
+      .projects-subtitle:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60%;
+        height: 2px;
+        background: var(--coffee-brown);
+      }
+
+      .projects-scroller {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2rem;
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+      }
+
+      .projects-scroller::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome/Safari */
+      }
+
+      .projects-grid {
+        display: flex;
+        gap: 2rem;
+        width: max-content;
+        padding: 0 1px; /* Prevents box-shadow clipping */
+      }
+
+      .project-card {
+        flex: 0 0 300px;
+        background-color: var(--deep-olive-black);
+        padding: 2rem;
+        border: 1px solid rgba(123, 90, 69, 0.3);
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 200px;
+        background-color: var(--coffee-brown);
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.05);
+      }
+
+      .project-title {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        color: var(--cream-white);
+        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+      }
+
+      .project-description {
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .project-tag {
+        background: rgba(123, 90, 69, 0.2);
+        color: var(--cream-white);
+        padding: 0.3rem 0.8rem;
+        border-radius: 50px;
+        font-family: var(--font-secondary);
+        font-size: 0.8rem;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1024px) {
+        .projects-number {
+          font-size: 6rem;
+        }
+        .projects-title {
+          font-size: 4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .projects-section {
+          padding: 4rem 2rem;
+        }
+        .projects-header {
+          position: static;
+          padding: 0;
+          margin: 0;
+        }
+        .projects-number {
+          font-size: 4rem;
+        }
+        .projects-title {
+          font-size: 2.5rem;
+        }
+        .project-card {
+          flex: 0 0 260px;
+        }
+      }
+    </style>
+
+    <section class="projects-section">
+      <div class="projects-container">
+        <div class="projects-header">
+          <div class="projects-number">02</div>
+          <h2 class="projects-subtitle">Selected Works</h2>
+          <h1 class="projects-title">My Projects</h1>
+        </div>
+
+        <style>
+          .view-all-projects {
+            text-align: center;
+            z-index: 8;
+            text-align: left;
+            margin-bottom: 2rem;
+          }
+
+          .projects-button {
+            background-color: var(--coffee-brown);
+            color: var(--cream-white);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+          }
+
+          .projects-button:hover {
+            background-color: var(--cream-white);
+            color: var(--coffee-brown);
+            transform: translateY(-2px);
+          }
+        </style>
+
+        <div class="view-all-projects">
+          <a href="projects.html" class="projects-button">See All Projects</a>
+        </div>
+
+        <div class="projects-scroller">
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
+                  alt="E-commerce Platform"
+                />
+              </div>
+              <h3 class="project-title">E-commerce Platform</h3>
+              <p class="project-description">
+                Full-featured online store with Django backend, React frontend,
+                and Stripe integration.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Django</span>
+                <span class="project-tag">React</span>
+                <span class="project-tag">PostgreSQL</span>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
+                  alt="AI Content Generator"
+                />
+              </div>
+              <h3 class="project-title">AI Content Generator</h3>
+              <p class="project-description">
+                LLM-powered writing assistant with custom fine-tuned models.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">LangChain</span>
+                <span class="project-tag">FastAPI</span>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
+                  alt="Automation Dashboard"
+                />
+              </div>
+              <h3 class="project-title">Automation Dashboard</h3>
+              <p class="project-description">
+                Internal tool that reduced manual work by 80% through
+                automation.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Flask</span>
+                <span class="project-tag">Pandas</span>
+                <span class="project-tag">Celery</span>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
+                  alt="Data Pipeline"
+                />
+              </div>
+              <h3 class="project-title">Data Pipeline</h3>
+              <p class="project-description">
+                ETL pipeline processing millions of records daily.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Airflow</span>
+                <span class="project-tag">BigQuery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .contact-cta {
+        padding: 4rem;
+        text-align: center;
+        background-color: var(--deep-olive-black);
+        border-top: 1px solid rgba(123, 90, 69, 0.3);
+        position: relative;
+        z-index: 8;
+      }
+      .contact-cta h2 {
+        font-family: var(--font-primary);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--cream-white);
+        letter-spacing: 1px;
+      }
+      .contact-cta p {
+        font-family: var(--font-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+      .contact-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+      }
+      .contact-links a {
+        color: var(--coffee-brown);
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+      .contact-links a:hover {
+        color: var(--cream-white);
+        transform: translateY(-3px);
+      }
+
+      /* Mobile tweaks */
+      @media (max-width: 768px) {
+        .contact-cta {
+          padding: 3rem 1.5rem;
+        }
+        .contact-cta h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+
+    <section class="contact-cta">
+      <h2>READY TO COLLABORATE?</h2>
+      <p>
+        For freelance projects or engineering roles, reach me at<br />
+        <strong style="color: var(--coffee-brown)"
+          >felixfurtado809@gmail.com</strong
+        >
+      </p>
+      <div class="contact-links">
+        <a
+          href="https://github.com/felixfurtado"
+          target="_blank"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+
+        <a
+          href="https://linkedin.com/in/felixfurtado"
+          target="_blank"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+
+        <a href="tel:+1234567890" aria-label="Phone"
+          ><i class="fas fa-phone"></i
+        ></a>
+
+        <a
+          href="https://instagram.com/felizfurtado"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </section>
+
+<style>
+  .nav-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(5, 16, 11, 0.98);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+    overflow: hidden;
+  }
+
+  .nav-popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-popup-content {
+    width: 90%;
+    height: 90vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    padding: 2rem;
+    gap: 1rem;
+    box-sizing: border-box;
+  }
+
+  .nav-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; 
+  }
+
+  .nav-popup-logo {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--cream-white);
+    letter-spacing: 3px;
+  }
+
+  .nav-popup-close {
+    font-size: 2rem;
+    color: var(--cream-white);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-popup-close:hover {
+    transform: rotate(90deg);
+    color: var(--coffee-brown);
+  }
+
+  .nav-popup-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh; 
+    height: 100%;
+    overflow: hidden; 
+  }
+
+  .nav-popup-link {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--cream-white);
+    text-decoration: none;
+    line-height: 1;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-popup-link:hover {
+    color: var(--coffee-brown);
+  }
+
+  .nav-popup-footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-popup-social {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-popup-social a {
+    color: var(--coffee-brown);
+    font-size: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .nav-popup-social a:hover {
+    color: var(--cream-white);
+  }
+
+  @media (max-height: 700px) {
+    .nav-popup-link {
+      font-size: clamp(2rem, 5vh, 3rem);
+      padding: 0.3rem 0;
+    }
+    .nav-popup-links {
+      gap: 0.5vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-popup-content {
+      padding: 1.5rem;
+    }
+    .nav-popup-logo {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<div class="nav-popup" id="navPopup">
+  <div class="nav-popup-content">
+    <div class="nav-popup-header">
+      <div class="nav-popup-logo">FELIX FURTADO</div>
+      <div class="nav-popup-close" id="navClose">&times;</div>
+    </div>
+    <nav class="nav-popup-links">
+      <a href="index.html" class="nav-popup-link">Home</a>
+      <a href="about.html" class="nav-popup-link">About</a>
+      <a href="projects.html" class="nav-popup-link">Projects</a>
+      <a href="contact.html" class="nav-popup-link">Contact</a>
+    </nav>
+    <div class="nav-popup-footer">
+      <div class="nav-popup-social">
+        <a href="https://github.com/felixfurtado" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/felixfurtado" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="tel:+1234567890"><i class="fas fa-phone"></i></a>
+        <a href="https://instagram.com/felizfurtado" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navButton = document.querySelector(".nav-right i");
+        const navPopup = document.getElementById("navPopup");
+        const navClose = document.getElementById("navClose");
+
+        navButton.addEventListener("click", function () {
+          navPopup.classList.add("active");
+          document.body.style.overflow = "hidden"; 
+        });
+
+        navClose.addEventListener("click", function () {
+          navPopup.classList.remove("active");
+          document.body.style.overflow = ""; 
+        });
+
+        navPopup.addEventListener("click", function (e) {
+          if (e.target === navPopup) {
+            navPopup.classList.remove("active");
+            document.body.style.overflow = ""; 
+          }
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && navPopup.classList.contains("active")) {
+            navPopup.classList.remove("active");
+            document.body.style.overflow = ""; 
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
