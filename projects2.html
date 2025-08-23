@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felix Furtado - Projects</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --cream-white: #d0cbb1;
+        --coffee-brown: #7c5a45;
+        --deep-olive-black: #05100b;
+        --main: #1d2e28;
+        --accent-glow: rgba(208, 203, 177, 0.15);
+        --font-primary: "Anton", sans-serif;
+        --font-secondary: "Oswald", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--deep-olive-black);
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Navbar - Same as Homepage */
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 4rem;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: var(--cream-white);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background-color: var(--deep-olive-black);
+        border-bottom: 1px solid rgba(123, 90, 69, 0.2);
+      }
+
+      .nav-left,
+      .nav-center,
+      .nav-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-left {
+        justify-content: flex-start;
+      }
+
+      .nav-right {
+        justify-content: flex-end;
+      }
+
+      .logo {
+        font-family: var(--font-primary);
+        letter-spacing: 2px;
+        font-size: 28px;
+      }
+
+      .start-project-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--main);
+        color: var(--cream-white);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(123, 90, 69, 0.3);
+      }
+
+      .start-project-btn:hover {
+        background-color: var(--coffee-brown);
+        transform: translateY(-2px);
+      }
+
+      /* Projects Header */
+      .projects-header {
+        padding: 8rem 4rem 4rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .projects-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(123, 90, 69, 0.05) 0%, transparent 70%);
+        z-index: -1;
+      }
+
+      .projects-number {
+        font-family: var(--font-primary);
+        font-size: 8rem;
+        color: rgba(208, 203, 177, 0.1);
+        line-height: 0.8;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+      }
+
+      .projects-title {
+        font-family: var(--font-primary);
+        font-size: 4rem;
+        color: var(--cream-white);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+        position: relative;
+      }
+
+      .projects-subtitle {
+        font-family: var(--font-secondary);
+        color: var(--coffee-brown);
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .projects-subtitle:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--coffee-brown);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .projects-subtitle:hover:after {
+        transform: scaleX(0.5);
+      }
+
+      /* Project Grid */
+      .projects-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 4rem 6rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 3rem;
+      }
+
+      .project-card {
+        border: 1px solid rgba(123, 90, 69, 0.3);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent 60%, rgba(5, 16, 11, 0.9) 90%);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        border-color: rgba(123, 90, 69, 0.5);
+      }
+
+      .project-card:hover::before {
+        opacity: 1;
+      }
+
+      .project-image {
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.1);
+      }
+
+      .project-content {
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+        background-color: var(--deep-olive-black);
+      }
+
+      .project-name {
+        font-family: var(--font-primary);
+        font-size: 1.8rem;
+        color: var(--cream-white);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .project-name::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--coffee-brown);
+        transition: width 0.3s ease;
+      }
+
+      .project-card:hover .project-name::after {
+        width: 100%;
+      }
+
+      .project-description {
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .project-tag {
+        background: rgba(123, 90, 69, 0.2);
+        color: var(--cream-white);
+        padding: 0.3rem 0.8rem;
+        border-radius: 50px;
+        font-family: var(--font-secondary);
+        font-size: 0.8rem;
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover .project-tag {
+        background: rgba(123, 90, 69, 0.4);
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.5rem;
+        background-color: var(--coffee-brown);
+        color: var(--cream-white);
+        font-family: var(--font-secondary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      .project-link:hover {
+        background-color: var(--cream-white);
+        color: var(--coffee-brown);
+        transform: translateX(5px);
+      }
+
+      /* Footer - Same as Homepage */
+      .contact-cta {
+        padding: 6rem 4rem;
+        text-align: center;
+        background-color: var(--deep-olive-black);
+        border-top: 1px solid rgba(123, 90, 69, 0.3);
+        position: relative;
+        z-index: 8;
+      }
+
+      .contact-cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--coffee-brown), transparent);
+      }
+
+      .contact-cta h2 {
+        font-family: var(--font-primary);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--cream-white);
+        letter-spacing: 1px;
+        position: relative;
+      }
+
+      .contact-cta h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 2px;
+        background: var(--coffee-brown);
+      }
+
+      .contact-cta p {
+        font-family: var(--font-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+
+      .contact-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+      }
+
+      .contact-links a {
+        color: var(--coffee-brown);
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact-links a:hover {
+        color: var(--cream-white);
+        transform: translateY(-5px) scale(1.2);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 1200px) {
+        .projects-grid {
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .projects-title {
+          font-size: 3rem;
+        }
+        .projects-number {
+          font-size: 6rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          padding: 1.5rem;
+        }
+        .nav-left {
+          display: none;
+        }
+        .logo {
+          font-size: 26px !important;
+        }
+        .nav-right i {
+          font-size: 24px !important;
+        }
+        .projects-header {
+          padding: 6rem 2rem 2rem;
+        }
+        .projects-title {
+          font-size: 2.5rem;
+        }
+        .projects-number {
+          font-size: 5rem;
+        }
+        .projects-container {
+          padding: 0 2rem 4rem;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-cta {
+          padding: 4rem 2rem;
+        }
+        .contact-cta h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .projects-header {
+          padding: 5rem 1.5rem 2rem;
+        }
+        .projects-title {
+          font-size: 2rem;
+        }
+        .projects-number {
+          font-size: 4rem;
+        }
+        .project-image {
+          height: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar - Same as Homepage -->
+    <div class="nav">
+      <div class="nav-left">
+        <a href="#contact" class="start-project-btn"> Start a Project </a>
+      </div>
+
+      <div class="nav-center">
+        <div class="logo">Felix Furtado</div>
+      </div>
+
+      <div class="nav-right">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+
+    <!-- Projects Header -->
+    <div class="projects-header">
+      <div class="projects-number">03</div>
+      <h1 class="projects-title">My Projects</h1>
+      <h2 class="projects-subtitle">Full Collection</h2>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-container">
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="AI E-commerce"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-name">AI-Powered E-commerce</h3>
+            <p class="project-description">
+              Built with Django and React, this platform features natural language
+              search, personalized recommendations, and seamless checkout.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Django</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">LLM</span>
+              <span class="project-tag">Stripe</span>
+            </div>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Health System"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-name">QR Health Records</h3>
+            <p class="project-description">
+              Medical record system with QR code access for instant patient data
+              retrieval, reducing lookup time by 60%.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Django</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">QR Codes</span>
+            </div>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Trading System"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-name">Algorithmic Trading</h3>
+            <p class="project-description">
+              Developed 5+ trading strategies using Backtrader, Pandas, and
+              Matplotlib with automated execution.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Pandas</span>
+              <span class="project-tag">Backtrader</span>
+            </div>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="College Platform"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-name">College Search Engine</h3>
+            <p class="project-description">
+              Scraped data from 3 portals (500+ colleges) with LangChain-powered
+              chatbot handling 100+ daily queries.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Scrapy</span>
+              <span class="project-tag">LangChain</span>
+              <span class="project-tag">RAG</span>
+            </div>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Automation Tool"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-name">Workflow Automation</h3>
+            <p class="project-description">
+              Internal tool that reduced manual work by 80% through intelligent
+              automation and scheduled tasks.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Celery</span>
+              <span class="project-tag">Automation</span>
+            </div>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80"
+              alt="Data Pipeline"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-name">ETL Data Pipeline</h3>
+            <p class="project-description">
+              Processing millions of records daily with Python, Airflow, and
+              BigQuery for analytics.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">ETL</span>
+              <span class="project-tag">Airflow</span>
+              <span class="project-tag">BigQuery</span>
+            </div>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer - Same as Homepage -->
+    <section class="contact-cta">
+      <h2>READY TO COLLABORATE?</h2>
+      <p>
+        For freelance projects or engineering roles, reach me at<br />
+        <strong style="color: var(--coffee-brown)"
+          >felixfurtado809@gmail.com</strong
+        >
+      </p>
+      <div class="contact-links">
+        <a
+          href="https://github.com/felixfurtado"
+          target="_blank"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+
+        <a
+          href="https://linkedin.com/in/felixfurtado"
+          target="_blank"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+
+        <a href="tel:+97158925942" aria-label="Phone"
+          ><i class="fas fa-phone"></i
+        ></a>
+
+        <a
+          href="https://instagram.com/felizfurtado"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </section>
+  </body>
+</html>

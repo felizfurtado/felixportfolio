@@ -277,7 +277,7 @@
         .nav {
           padding: 1.5rem;
         }
-          .nav-left {
+        .nav-left {
           display: none;
         }
         .logo {
@@ -336,71 +336,120 @@
     <div class="projects-grid">
       <!-- Project 1 -->
       <div class="project-card">
+        <style>
+          .aaa {
+            background-color: transparent;
+            text-decoration: none;
+          }
+          .aaa:hover {
+            background-color: transparent;
+          }
+        </style>
+
+        <style>
+          .project-image {
+            position: relative;
+          }
+
+          .project-image .black-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+            transition: all 0.3s ease;
+          }
+
+          .project-card:hover .project-image .black-overlay {
+            background-color: rgba(0, 0, 0, 0.1); /* Lighter on hover */
+          }
+        </style>
         <div class="project-image">
-          <img
-            src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
-            alt="Data Pipeline"
-          />
+          <img src="Screenshot 2025-08-05 141559.png" alt="Data Pipeline" />
+          <div class="black-overlay"></div>
         </div>
         <div class="project-content">
-          <h3 class="project-name">AI-Powered E-commerce</h3>
+          <a href="pd-1.html" class="aaa"
+            ><h3 class="project-name">AI-Powered E-commerce Platform</h3></a
+          >
           <p class="project-description">
-            Built with Django and React, this platform features natural language
-            search, personalized recommendations, and seamless checkout.
+            AI-powered e-commerce built with Django and Gemini AI for smart
+            product discovery. Lightweight frontend with AJAX for seamless,
+            reload-free filtering and recommendations.
           </p>
           <div class="project-tags">
-            <span class="project-tag">Django</span>
-            <span class="project-tag">React</span>
-            <span class="project-tag">LLM</span>
-            <span class="project-tag">Stripe</span>
+            <span class="project-tag">Python(Django)</span>
+            <span class="project-tag">Google Generative AI</span>
+            <span class="project-tag">LLM (Large Language Model)</span>
+            <span class="project-tag">Django Rest Framework</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Vanila JavaScript</span>
+            <span class="project-tag">JSON API</span>
+            <span class="project-tag">AJAX</span>
+            <span class="project-tag">Responsive Design</span>
           </div>
-          <a href="#" class="project-link">View Project</a>
+          <a href="pd-1.html" class="project-link">View Project</a>
         </div>
       </div>
 
       <!-- Project 2 -->
       <div class="project-card">
         <div class="project-image">
-          <img
-            src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
-            alt="Data Pipeline"
-          />
+          <img src="video cover2.png" alt="Data Pipeline" />
+          <div class="black-overlay"></div>
+
         </div>
         <div class="project-content">
-          <h3 class="project-name">QR Health Records</h3>
+          <a href="pd-2.html" class="aaa"
+            ><h3 class="project-name">Minimal Hoodie Store</h3></a
+          >
           <p class="project-description">
-            Medical record system with QR code access for instant patient data
-            retrieval, reducing lookup time by 60%.
+            A dynamic web application built with Django for smooth product
+            display and user interaction. Integrated JSON-based data handling,
+            AJAX-powered updates, and session-based authentication.
           </p>
           <div class="project-tags">
-            <span class="project-tag">Django</span>
-            <span class="project-tag">MySQL</span>
-            <span class="project-tag">QR Codes</span>
+            <span class="project-tag">Python (Django)</span>
+            <span class="project-tag">Session Auth</span>
+            <span class="project-tag">Token Auth</span>
+            <span class="project-tag">JSON</span>
+            <span class="project-tag">AJAX</span>
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">Vanilla JS</span>
           </div>
-          <a href="#" class="project-link">View Project</a>
+          <a href="pd-2.html" class="project-link">View Project</a>
         </div>
       </div>
 
-      <!-- Project 3 -->
       <div class="project-card">
         <div class="project-image">
-          <img
-            src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
-            alt="Data Pipeline"
-          />
+          <img src="video cover 3.png" alt="College & Exam Finder" />
+          <div class="black-overlay"></div>
+
         </div>
         <div class="project-content">
-          <h3 class="project-name">Algorithmic Trading</h3>
+          <a href="pd-3.html" class="aaa"
+            ><h3 class="project-name">College & Exam Finder Website</h3></a
+          >
           <p class="project-description">
-            Developed 5+ trading strategies using Backtrader, Pandas, and
-            Matplotlib with automated execution.
+            A full-stack platform for exploring colleges and entrance exams,
+            with advanced filtering, React + Django REST backend, and MySQL user
+            auth.
           </p>
           <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Pandas</span>
-            <span class="project-tag">Backtrader</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">Axios</span>
+            <span class="project-tag">Django</span>
+            <span class="project-tag">DRF</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">JSON</span>
+            <span class="project-tag">API Integration</span>
+            <span class="project-tag">Responsive UI</span>
+            <span class="project-tag">Secure Auth</span>
           </div>
-          <a href="#" class="project-link">View Project</a>
+          <a href="pd-3.html" class="project-link">View Project</a>
         </div>
       </div>
 
@@ -408,50 +457,60 @@
       <div class="project-card">
         <div class="project-image">
           <img
-            src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
-            alt="Data Pipeline"
+            src="Screenshot 2025-08-12 163934.png"
+            alt="College Rank Scraper"
           />
+          <div class="black-overlay"></div>
+
         </div>
         <div class="project-content">
-          <h3 class="project-name">College Search Engine</h3>
+          <a href="pd-4.html" class="href">
+            <h3 class="project-name">College Data Scraper</h3></a
+          >
           <p class="project-description">
-            Scraped data from 3 portals (500+ colleges) with LangChain-powered
-            chatbot handling 100+ daily queries.
+            Scraped detailed college data (5,000+ colleges) from Careers360
+            using Python and Selenium. Extracted college names, URLs, ownership,
+            fees, and ratings into clean JSON files.
           </p>
           <div class="project-tags">
-            <span class="project-tag">Scrapy</span>
-            <span class="project-tag">LangChain</span>
-            <span class="project-tag">RAG</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Selenium</span>
+            <span class="project-tag">Web Scraping</span>
+            <span class="project-tag">JSON</span>
+            <span class="project-tag">Automation</span>
           </div>
-          <a href="#" class="project-link">View Project</a>
+          <a href="pd-4.html" class="project-link">View Project</a>
         </div>
       </div>
 
       <!-- Project 5 -->
       <div class="project-card">
         <div class="project-image">
-          <img
-            src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
-            alt="Data Pipeline"
-          />
+          <img src="login.png" alt="Django User Auth with OTP" />
+          <div class="black-overlay"></div>
+
         </div>
         <div class="project-content">
-          <h3 class="project-name">Workflow Automation</h3>
+          <h3 class="project-name">Django Auth API with OTP</h3>
           <p class="project-description">
-            Internal tool that reduced manual work by 80% through intelligent
-            automation and scheduled tasks.
+            REST API built with Django and DRF for user registration and login,
+            featuring email OTP verification and JWT-based authentication.
+            Ensures secure password hashing and only allows verified users to
+            login.
           </p>
           <div class="project-tags">
             <span class="project-tag">Python</span>
-            <span class="project-tag">Celery</span>
-            <span class="project-tag">Automation</span>
+            <span class="project-tag">Django</span>
+            <span class="project-tag">DRF</span>
+            <span class="project-tag">JWT</span>
+            <span class="project-tag">Email OTP</span>
           </div>
           <a href="#" class="project-link">View Project</a>
         </div>
       </div>
 
       <!-- Project 6 -->
-      <div class="project-card">
+      <!-- <div class="project-card">
         <div class="project-image">
           <img
             src="https://cdn.dribbble.com/userupload/8621776/file/original-6648079dc111ddacf7438369c7c115ce.png"
@@ -471,10 +530,10 @@
           </div>
           <a href="#" class="project-link">View Project</a>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    <br>
+    <br />
     <!-- Footer - Same as Homepage -->
     <section class="contact-cta">
       <h2>READY TO COLLABORATE?</h2>
@@ -499,7 +558,7 @@
           ><i class="fab fa-linkedin"></i
         ></a>
 
-        <a href="tel:+1234567890" aria-label="Phone"
+        <a href="tel:+97158925942" aria-label="Phone"
           ><i class="fas fa-phone"></i
         ></a>
 
@@ -512,156 +571,159 @@
       </div>
     </section>
 
-
-
-
     <style>
-  .nav-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(5, 16, 11, 0.98);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease;
-    overflow: hidden;
-  }
+      .nav-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 16, 11, 0.98);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease;
+        overflow: hidden;
+      }
 
-  .nav-popup.active {
-    opacity: 1;
-    visibility: visible;
-  }
+      .nav-popup.active {
+        opacity: 1;
+        visibility: visible;
+      }
 
-  .nav-popup-content {
-    width: 90%;
-    height: 90vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto; 
-    padding: 2rem;
-    gap: 1rem;
-    box-sizing: border-box;
-  }
+      .nav-popup-content {
+        width: 90%;
+        height: 90vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: 2rem;
+        gap: 1rem;
+        box-sizing: border-box;
+      }
 
-  .nav-popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px; 
-  }
+      .nav-popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+      }
 
-  .nav-popup-logo {
-    font-family: var(--font-primary);
-    font-size: 1.5rem;
-    color: var(--cream-white);
-    letter-spacing: 3px;
-  }
+      .nav-popup-logo {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        color: var(--cream-white);
+        letter-spacing: 3px;
+      }
 
-  .nav-popup-close {
-    font-size: 2rem;
-    color: var(--cream-white);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
+      .nav-popup-close {
+        font-size: 2rem;
+        color: var(--cream-white);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
 
-  .nav-popup-close:hover {
-    transform: rotate(90deg);
-    color: var(--coffee-brown);
-  }
+      .nav-popup-close:hover {
+        transform: rotate(90deg);
+        color: var(--coffee-brown);
+      }
 
-  .nav-popup-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1vh; 
-    height: 100%;
-    overflow: hidden; 
-  }
+      .nav-popup-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+        height: 100%;
+        overflow: hidden;
+      }
 
-  .nav-popup-link {
-    font-family: var(--font-primary);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    color: var(--cream-white);
-    text-decoration: none;
-    line-height: 1;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-  }
+      .nav-popup-link {
+        font-family: var(--font-primary);
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        color: var(--cream-white);
+        text-decoration: none;
+        line-height: 1;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+      }
 
-  .nav-popup-link:hover {
-    color: var(--coffee-brown);
-  }
+      .nav-popup-link:hover {
+        color: var(--coffee-brown);
+      }
 
-  .nav-popup-footer {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+      .nav-popup-footer {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-  .nav-popup-social {
-    display: flex;
-    gap: 1.5rem;
-  }
+      .nav-popup-social {
+        display: flex;
+        gap: 1.5rem;
+      }
 
-  .nav-popup-social a {
-    color: var(--coffee-brown);
-    font-size: 2rem;
-    transition: color 0.3s ease;
-  }
+      .nav-popup-social a {
+        color: var(--coffee-brown);
+        font-size: 2rem;
+        transition: color 0.3s ease;
+      }
 
-  .nav-popup-social a:hover {
-    color: var(--cream-white);
-  }
+      .nav-popup-social a:hover {
+        color: var(--cream-white);
+      }
 
-  @media (max-height: 700px) {
-    .nav-popup-link {
-      font-size: clamp(2rem, 5vh, 3rem);
-      padding: 0.3rem 0;
-    }
-    .nav-popup-links {
-      gap: 0.5vh;
-    }
-  }
+      @media (max-height: 700px) {
+        .nav-popup-link {
+          font-size: clamp(2rem, 5vh, 3rem);
+          padding: 0.3rem 0;
+        }
+        .nav-popup-links {
+          gap: 0.5vh;
+        }
+      }
 
-  @media (max-width: 768px) {
-    .nav-popup-content {
-      padding: 1.5rem;
-    }
-    .nav-popup-logo {
-      font-size: 1.2rem;
-    }
-  }
-</style>
+      @media (max-width: 768px) {
+        .nav-popup-content {
+          padding: 1.5rem;
+        }
+        .nav-popup-logo {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
 
-<div class="nav-popup" id="navPopup">
-  <div class="nav-popup-content">
-    <div class="nav-popup-header">
-      <div class="nav-popup-logo">FELIX FURTADO</div>
-      <div class="nav-popup-close" id="navClose">&times;</div>
-    </div>
-    <nav class="nav-popup-links">
-      <a href="index.html" class="nav-popup-link">Home</a>
-      <a href="resume.html" class="nav-popup-link">Resume</a>
-      <a href="projects.html" class="nav-popup-link">Projects</a>
-      <a href="contact.html" class="nav-popup-link">Contact</a>
-    </nav>
-    <div class="nav-popup-footer">
-      <div class="nav-popup-social">
-        <a href="https://github.com/felixfurtado" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/felixfurtado" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="tel:+1234567890"><i class="fas fa-phone"></i></a>
-        <a href="https://instagram.com/felizfurtado" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="nav-popup" id="navPopup">
+      <div class="nav-popup-content">
+        <div class="nav-popup-header">
+          <div class="nav-popup-logo">FELIX FURTADO</div>
+          <div class="nav-popup-close" id="navClose">&times;</div>
+        </div>
+        <nav class="nav-popup-links">
+          <a href="index.html" class="nav-popup-link">Home</a>
+          <a href="resume.html" class="nav-popup-link">Resume</a>
+          <a href="projects.html" class="nav-popup-link">Projects</a>
+          <a href="contact.html" class="nav-popup-link">Contact</a>
+        </nav>
+        <div class="nav-popup-footer">
+          <div class="nav-popup-social">
+            <a href="https://github.com/felixfurtado" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://linkedin.com/in/felixfurtado" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="tel:+97158925942"><i class="fas fa-phone"></i></a>
+            <a href="https://instagram.com/felizfurtado" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -671,25 +733,25 @@
 
         navButton.addEventListener("click", function () {
           navPopup.classList.add("active");
-          document.body.style.overflow = "hidden"; 
+          document.body.style.overflow = "hidden";
         });
 
         navClose.addEventListener("click", function () {
           navPopup.classList.remove("active");
-          document.body.style.overflow = ""; 
+          document.body.style.overflow = "";
         });
 
         navPopup.addEventListener("click", function (e) {
           if (e.target === navPopup) {
             navPopup.classList.remove("active");
-            document.body.style.overflow = ""; 
+            document.body.style.overflow = "";
           }
         });
 
         document.addEventListener("keydown", function (e) {
           if (e.key === "Escape" && navPopup.classList.contains("active")) {
             navPopup.classList.remove("active");
-            document.body.style.overflow = ""; 
+            document.body.style.overflow = "";
           }
         });
       });

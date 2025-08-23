@@ -23,13 +23,11 @@
         --font-secondary: "Oswald", sans-serif;
       }
 
-      
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
 
       /* Cosmic Glow Effect */
       @keyframes cosmicGlow {
@@ -43,8 +41,6 @@
           box-shadow: 0 0 15px var(--accent-glow);
         }
       }
-
-
 
       body {
         background-color: var(--deep-olive-black);
@@ -61,7 +57,7 @@
       }
 
       /* Cyberpunk Navbar */
-       .nav {
+      .nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -89,7 +85,7 @@
         cursor: pointer;
       }
 
-       .logo {
+      .logo {
         font-family: var(--font-subtitle);
         cursor: pointer;
         z-index: 10;
@@ -142,10 +138,6 @@
       .start-project-btn i {
         font-size: 1.2rem;
       }
-
-      
-
-     
 
       .resume-container {
         max-width: 1200px;
@@ -430,11 +422,6 @@
         font-size: 0.9rem;
       }
 
-     
-
-    
-     
-
       /* Responsive Adjustments */
       @media (max-width: 1024px) {
         .resume-name {
@@ -454,8 +441,7 @@
       }
 
       @media (max-width: 768px) {
-       
-       .nav {
+        .nav {
           padding: 1.5rem;
         }
 
@@ -469,7 +455,7 @@
           font-size: 24px !important;
         }
         .resume-container {
-          padding: 2rem 1.5rem ;
+          padding: 2rem 1.5rem;
           margin-top: 6rem;
         }
         .resume-name {
@@ -498,46 +484,71 @@
     <div class="particles" id="particles-js"></div>
 
     <!-- Cyberpunk Navbar -->
-         <div class="nav">
-        <div class="nav-left">
-          <a href="contact.html" class="start-project-btn">
-            Start a Project
-            <!-- <i class="fa-solid fa-rocket"></i>  -->
-          </a>
-        </div>
-
-        <div class="nav-center">
-          <div class="logo" style="font-size: 28px">Felix Furtado</div>
-        </div>
-
-        <div class="nav-right">
-          <i class="fa-solid fa-bars" style="font-size: 28px"></i>
-        </div>
+    <div class="nav">
+      <div class="nav-left">
+        <a href="contact.html" class="start-project-btn">
+          Start a Project
+          <!-- <i class="fa-solid fa-rocket"></i>  -->
+        </a>
       </div>
+
+      <div class="nav-center">
+        <div class="logo" style="font-size: 28px">Felix Furtado</div>
+      </div>
+
+      <div class="nav-right">
+        <i class="fa-solid fa-bars" style="font-size: 28px"></i>
+      </div>
+    </div>
 
     <!-- Holographic Resume Container -->
     <div class="resume-container">
       <!-- Neon Header -->
       <div class="resume-header">
+        <style>
+          /* Profile Photo Styles */
+          .profile-photo {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--coffee-brown);
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 0 20px rgba(123, 90, 69, 0.5);
+          }
+
+          /* @media (max-width: 768px) {
+    .profile-photo {
+      width: 250px;
+      height: 250px;
+
+    }
+  } */
+        </style>
+        <img
+          src="felixprofile.jpeg"
+          alt="Felix Furtado"
+          class="profile-photo"
+        />
         <h1 class="resume-name">FELIX FURTADO</h1>
         <h2 class="resume-title">
-          PYTHON BACKEND DEVELOPER | AI INTEGRATION ENGINEER
+          Full Stack Developer | Python, Django, React & AI Integration
         </h2>
 
         <div class="contact-grid">
           <div class="contact-card">
             <i class="fas fa-map-marker-alt contact-icon"></i>
             <style>
-              .cc{
+              .cc {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                
               }
             </style>
             <div class="cc">
               <h4>LOCATION</h4>
-              <p>Karwar, India</p>
+              <p>Al Karama , Dubai, UAE</p>
             </div>
           </div>
           <div class="contact-card">
@@ -551,7 +562,7 @@
             <i class="fas fa-phone contact-icon"></i>
             <div class="cc">
               <h4>PHONE</h4>
-              <p>8762529770</p>
+              <p>+971 589259642</p>
             </div>
           </div>
         </div>
@@ -561,16 +572,18 @@
       <section>
         <h2 class="section-title">PROFESSIONAL PROFILE</h2>
         <p class="timeline-desc">
-          Python backend developer experienced in <strong>Django</strong>,
-          <strong>LangChain</strong>, and integrating large language models into
+          Full Stack Python developer experienced in <strong>Django</strong>,
+          <strong>Flask</strong>, and integrating large language models into
           real-world apps. Built AI chatbots with
           <strong>Google GenAI</strong> and <strong>JSON Querying</strong>,
           including an AI-powered e-commerce site with natural language shopping
           commands. Skilled in <strong>RAG Pipelines</strong>,
           <strong>LLM workflows</strong>, <strong>API Development</strong>,
-          <strong>JWT Authentication</strong>, and data handling with
-          <strong>Pandas</strong> and <strong>Matplotlib</strong>. Focused on
-          automation, scalable AI systems, and improving user experiences.
+          <strong>JWT Authentication</strong>, <strong>Pandas</strong>,
+          <strong>Matplotlib</strong>, and
+          <strong>front-end technologies</strong> to create responsive,
+          user-friendly interfaces. Focused on automation, scalable systems, and
+          improving end-to-end user experiences.
         </p>
       </section>
 
@@ -634,9 +647,12 @@
               >Python Developer & Chief Technology Officer</span
             >
             <p class="timeline-desc">
-              Delivered scalable solutions across trading, e-commerce, and
-              education domains, supporting 1,500+ users and automating client
-              workflows across projects.
+              Full Stack Python Developer at Stratwings, focused on Django
+              backend systems, front-end technologies, LangChain-based AI
+              integration, automation tools, and REST API development. Delivered
+              scalable solutions across trading, e-commerce, and education
+              domains, supporting 1,500+ users and building seamless workflows
+              across client projects.
             </p>
 
             <!-- Projects -->
@@ -646,16 +662,20 @@
               </h4>
               <ul class="timeline-desc">
                 <li>
-                  Developed college search platform using Django with filters
-                  for 500+ engineering colleges
+                  Developed a college search platform using Django, allowing
+                  students to browse and filter information on over 500
+                  engineering colleges with ease.
                 </li>
                 <li>
-                  Built LangChain-powered chatbot with RAG handling 100+ daily
-                  queries
+                  Built a LangChain-powered chatbot with RAG functionality that
+                  handles 100+ daily queries, delivering fast, conversational
+                  access to college data.
                 </li>
                 <li>
-                  Scraped data from 3 portals (Career360, CollegeDunia, Shiksha)
-                  mapping 500+ colleges
+                  Scraped and processed structured data from 3 major portals
+                  (Career360, CollegeDunia, Shiksha), mapping 500+ colleges to
+                  1,000+ course records, and exposed via a high-performance
+                  Django REST API with filtering and pagination.
                 </li>
               </ul>
             </div>
@@ -664,12 +684,14 @@
               <h4 class="project-title">Alphabots – Algorithmic Trading</h4>
               <ul class="timeline-desc">
                 <li>
-                  Engineered 5+ trading strategies using Backtrader, Pandas, and
-                  Matplotlib
+                  Engineered and iterated 5+ algorithmic trading strategies
+                  using Backtrader, Pandas, and Matplotlib, helping reduce
+                  manual effort and improve signal clarity for trading
+                  decisions.
                 </li>
                 <li>
-                  Reduced manual effort and improved signal clarity for trading
-                  decisions
+                  Designed a landing page using HTML, CSS, JavaScript, and GSAP
+                  and supporting 100+ monthly demo visits.
                 </li>
               </ul>
             </div>
@@ -683,8 +705,12 @@
             </div>
             <span class="timeline-position">Software Developer Intern</span>
             <p class="timeline-desc">
-              Delivered a responsive EMI Calculator using Django, HTML, CSS, and
-              JavaScript, reducing manual EMI lookup time by 50%.
+              Delivered a responsive EMI Calculator using
+              <strong>Django</strong>, <strong>HTML</strong>,
+              <strong>CSS</strong>, and <strong>JavaScript</strong>, enabling
+              real-time loan calculations through dynamic form inputs.
+              Integrated the financial logic and optimized performance, reducing
+              manual EMI lookup time by 50%.
             </p>
           </div>
         </div>
@@ -698,16 +724,29 @@
           <h3 class="project-title">Healthify | QR-Based Medical System</h3>
           <ul class="timeline-desc">
             <li>
-              Developed patient record system with Django handling 1,000+
-              medical records
+              Hospital QR Code App: Developed a patient record management system
+              using Python and Django, enabling secure digital access to over
+              1,000+ medical records.
             </li>
             <li>
-              Created REST APIs for QR code generation and real-time data access
+              Python Backend: Created RESTful APIs in Django to support QR code
+              generation, scanning, and real-time access to patient data.
             </li>
             <li>
-              Implemented MySQL with optimized indexing for faster retrieval
+              Database Management: Implemented a MySQL database schema to
+              efficiently store and query patient histories, with optimized
+              indexing for faster retrieval.
             </li>
-            <li>Reduced manual lookup time by 60% using QR codes</li>
+            <li>
+              QR Code Integration: Utilized the qrcode Python library to
+              generate QR codes linked to patient-specific medical data,
+              reducing manual lookup time by 60%.
+            </li>
+            <li>
+              Frontend: Coded a responsive user interface using HTML, CSS, and
+              JavaScript, ensuring compatibility across devices and improving
+              usability for hospital staff.
+            </li>
           </ul>
         </div>
 
@@ -715,14 +754,27 @@
           <h3 class="project-title">AI Hoodie Store Chatbot</h3>
           <ul class="timeline-desc">
             <li>
-              E-commerce platform with natural language search for 100+ SKUs
+              Crafted an e-commerce platform using Django and LangChain,
+              enabling natural language product search and cart management for
+              100+ SKUs. added Celery for handling asynchronous tasks like order
+              processing and notifications.
             </li>
             <li>
-              Built chatbot handling queries like "show black hoodies under
-              ₹500"
+              Built a chatbot that handles queries like “show black hoodies
+              under ₹500,” reducing user navigation time by 50%.
             </li>
-            <li>Integrated RAG pipelines with LLM for accurate suggestions</li>
-            <li>Configured JWT auth for 1,000+ active users</li>
+            <li>
+              Integrated RAG pipelines using structured JSON data with an LLM to
+              deliver accurate product suggestions.
+            </li>
+            <li>
+              Configured Django Sessions and JWT authentication, ensuring secure
+              user tracking for 1,000+ active users.
+            </li>
+            <li>
+              Stored data in MySQL with hashed passwords to ensure secure login
+              and operations.
+            </li>
           </ul>
         </div>
       </section>
@@ -753,13 +805,27 @@
               <strong>Languages:</strong> English (Fluent), Hindi (Fluent),
               Konkani (Native)
             </li>
-            <li>
-              <strong>Research:</strong> Published papers on DNG to Cube
-              Converter and QR-Based Health Card
+            
+            <li class="publication-list">
+              <strong>Research Publications:</strong>
+
+           
+              <ul >
+                <li style="margin-left: 20px;">
+                  DNG to Cube Converter using Python – Published at
+                  ICRDSTEM-2023
+                </li>
+                <li style="margin-left: 20px;">
+                  QR-Based Hospital Health Card – Published at IJARCCE-2023
+                </li>
+              </ul>
             </li>
             <li>
-              <strong>Open Source:</strong> Created DNG to Cube Python library
-              for color grading workflows
+              <strong>Python Library:</strong> DNG to Cube Python Library –
+              Launched a Python library for converting DNG (Digital Negative)
+              files into 3D LUT cube format, supporting color grading and image
+              processing workflows. Published and maintained for open-source
+              use.
             </li>
           </ul>
         </div>
@@ -767,11 +833,11 @@
     </div>
 
     <!-- Particle.js Script -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Add floating animation
-    const style = document.createElement("style");
-    style.textContent = `
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add floating animation
+        const style = document.createElement("style");
+        style.textContent = `
       @keyframes float {
         0% { transform: translateY(0) translateX(0); opacity: 0; }
         10% { opacity: 0.3; }
@@ -779,10 +845,9 @@
         100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
       }
     `;
-    document.head.appendChild(style);
-  });
-</script>
-
+        document.head.appendChild(style);
+      });
+    </script>
 
     <style>
       .contact-cta {
@@ -856,7 +921,7 @@
           ><i class="fab fa-linkedin"></i
         ></a>
 
-        <a href="tel:+1234567890" aria-label="Phone"
+        <a href="tel:+97158925942" aria-label="Phone"
           ><i class="fas fa-phone"></i
         ></a>
 
@@ -869,155 +934,159 @@
       </div>
     </section>
 
-
-
     <style>
-  .nav-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(5, 16, 11, 0.98);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease;
-    overflow: hidden;
-  }
+      .nav-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 16, 11, 0.98);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease;
+        overflow: hidden;
+      }
 
-  .nav-popup.active {
-    opacity: 1;
-    visibility: visible;
-  }
+      .nav-popup.active {
+        opacity: 1;
+        visibility: visible;
+      }
 
-  .nav-popup-content {
-    width: 90%;
-    height: 90vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto; 
-    padding: 2rem;
-    gap: 1rem;
-    box-sizing: border-box;
-  }
+      .nav-popup-content {
+        width: 90%;
+        height: 90vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: 2rem;
+        gap: 1rem;
+        box-sizing: border-box;
+      }
 
-  .nav-popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px; 
-  }
+      .nav-popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+      }
 
-  .nav-popup-logo {
-    font-family: var(--font-primary);
-    font-size: 1.5rem;
-    color: var(--cream-white);
-    letter-spacing: 3px;
-  }
+      .nav-popup-logo {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        color: var(--cream-white);
+        letter-spacing: 3px;
+      }
 
-  .nav-popup-close {
-    font-size: 2rem;
-    color: var(--cream-white);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
+      .nav-popup-close {
+        font-size: 2rem;
+        color: var(--cream-white);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
 
-  .nav-popup-close:hover {
-    transform: rotate(90deg);
-    color: var(--coffee-brown);
-  }
+      .nav-popup-close:hover {
+        transform: rotate(90deg);
+        color: var(--coffee-brown);
+      }
 
-  .nav-popup-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1vh; 
-    height: 100%;
-    overflow: hidden; 
-  }
+      .nav-popup-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+        height: 100%;
+        overflow: hidden;
+      }
 
-  .nav-popup-link {
-    font-family: var(--font-primary);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    color: var(--cream-white);
-    text-decoration: none;
-    line-height: 1;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-  }
+      .nav-popup-link {
+        font-family: var(--font-primary);
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        color: var(--cream-white);
+        text-decoration: none;
+        line-height: 1;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+      }
 
-  .nav-popup-link:hover {
-    color: var(--coffee-brown);
-  }
+      .nav-popup-link:hover {
+        color: var(--coffee-brown);
+      }
 
-  .nav-popup-footer {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+      .nav-popup-footer {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-  .nav-popup-social {
-    display: flex;
-    gap: 1.5rem;
-  }
+      .nav-popup-social {
+        display: flex;
+        gap: 1.5rem;
+      }
 
-  .nav-popup-social a {
-    color: var(--coffee-brown);
-    font-size: 2rem;
-    transition: color 0.3s ease;
-  }
+      .nav-popup-social a {
+        color: var(--coffee-brown);
+        font-size: 2rem;
+        transition: color 0.3s ease;
+      }
 
-  .nav-popup-social a:hover {
-    color: var(--cream-white);
-  }
+      .nav-popup-social a:hover {
+        color: var(--cream-white);
+      }
 
-  @media (max-height: 700px) {
-    .nav-popup-link {
-      font-size: clamp(2rem, 5vh, 3rem);
-      padding: 0.3rem 0;
-    }
-    .nav-popup-links {
-      gap: 0.5vh;
-    }
-  }
+      @media (max-height: 700px) {
+        .nav-popup-link {
+          font-size: clamp(2rem, 5vh, 3rem);
+          padding: 0.3rem 0;
+        }
+        .nav-popup-links {
+          gap: 0.5vh;
+        }
+      }
 
-  @media (max-width: 768px) {
-    .nav-popup-content {
-      padding: 1.5rem;
-    }
-    .nav-popup-logo {
-      font-size: 1.2rem;
-    }
-  }
-</style>
+      @media (max-width: 768px) {
+        .nav-popup-content {
+          padding: 1.5rem;
+        }
+        .nav-popup-logo {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
 
-<div class="nav-popup" id="navPopup">
-  <div class="nav-popup-content">
-    <div class="nav-popup-header">
-      <div class="nav-popup-logo">FELIX FURTADO</div>
-      <div class="nav-popup-close" id="navClose">&times;</div>
-    </div>
-    <nav class="nav-popup-links">
-      <a href="index.html" class="nav-popup-link">Home</a>
-      <a href="resume.html" class="nav-popup-link">Resume</a>
-      <a href="projects.html" class="nav-popup-link">Projects</a>
-      <a href="contact.html" class="nav-popup-link">Contact</a>
-    </nav>
-    <div class="nav-popup-footer">
-      <div class="nav-popup-social">
-        <a href="https://github.com/felixfurtado" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/felixfurtado" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="tel:+1234567890"><i class="fas fa-phone"></i></a>
-        <a href="https://instagram.com/felizfurtado" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="nav-popup" id="navPopup">
+      <div class="nav-popup-content">
+        <div class="nav-popup-header">
+          <div class="nav-popup-logo">FELIX FURTADO</div>
+          <div class="nav-popup-close" id="navClose">&times;</div>
+        </div>
+        <nav class="nav-popup-links">
+          <a href="index.html" class="nav-popup-link">Home</a>
+          <a href="resume.html" class="nav-popup-link">Resume</a>
+          <a href="projects.html" class="nav-popup-link">Projects</a>
+          <a href="contact.html" class="nav-popup-link">Contact</a>
+        </nav>
+        <div class="nav-popup-footer">
+          <div class="nav-popup-social">
+            <a href="https://github.com/felixfurtado" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://linkedin.com/in/felixfurtado" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="tel:+97158925942"><i class="fas fa-phone"></i></a>
+            <a href="https://instagram.com/felizfurtado" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -1027,25 +1096,25 @@
 
         navButton.addEventListener("click", function () {
           navPopup.classList.add("active");
-          document.body.style.overflow = "hidden"; 
+          document.body.style.overflow = "hidden";
         });
 
         navClose.addEventListener("click", function () {
           navPopup.classList.remove("active");
-          document.body.style.overflow = ""; 
+          document.body.style.overflow = "";
         });
 
         navPopup.addEventListener("click", function (e) {
           if (e.target === navPopup) {
             navPopup.classList.remove("active");
-            document.body.style.overflow = ""; 
+            document.body.style.overflow = "";
           }
         });
 
         document.addEventListener("keydown", function (e) {
           if (e.key === "Escape" && navPopup.classList.contains("active")) {
             navPopup.classList.remove("active");
-            document.body.style.overflow = ""; 
+            document.body.style.overflow = "";
           }
         });
       });

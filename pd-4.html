@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felix Furtado - AI-Powered E-commerce Project</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --cream-white: #d0cbb1;
+        --coffee-brown: #7c5a45;
+        --deep-olive-black: #05100b;
+        --main: #1d2e28;
+        --accent-glow: rgba(208, 203, 177, 0.15);
+        --font-primary: "Anton", sans-serif;
+        --font-secondary: "Oswald", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--deep-olive-black);
+        font-family: var(--font-secondary);
+        color: var(--cream-white);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Navbar - Same as Homepage */
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 4rem;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: var(--cream-white);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background-color: var(--deep-olive-black);
+        border-bottom: 1px solid rgba(123, 90, 69, 0.2);
+      }
+
+      .nav-left,
+      .nav-center,
+      .nav-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-left {
+        justify-content: flex-start;
+      }
+
+      .nav-right {
+        justify-content: flex-end;
+        cursor: pointer;
+      }
+
+      .logo {
+        font-family: var(--font-primary);
+        letter-spacing: 2px;
+        z-index: 10;
+        cursor: pointer;
+      }
+
+      .start-project-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--main);
+        color: var(--cream-white);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .start-project-btn:hover {
+        background-color: var(--coffee-brown);
+      }
+
+      /* Project Header - Redesigned */
+      .project-header {
+        padding: 8rem 4rem 6rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(5, 16, 11, 0.9),
+          rgba(5, 16, 11, 0.7)
+        );
+        z-index: -1;
+      }
+
+      .project-number {
+        font-family: var(--font-primary);
+        font-size: 12rem;
+        color: rgba(208, 203, 177, 0.05);
+        line-height: 0.8;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+
+      .project-title {
+        font-family: var(--font-primary);
+        font-size: 4.5rem;
+        color: var(--cream-white);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--coffee-brown);
+      }
+
+      .project-subtitle {
+        font-family: var(--font-secondary);
+        color: var(--coffee-brown);
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 2rem;
+        font-weight: 500;
+      }
+
+      /* Project Content - Redesigned */
+      .project-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 4rem 6rem;
+      }
+
+      .project-overview {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 6rem;
+      }
+
+      .project-details {
+        padding: 2rem 0;
+      }
+
+      .project-details h3 {
+        font-family: var(--font-primary);
+        font-size: 1.8rem;
+        color: var(--cream-white);
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+      }
+
+      .project-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+        color: rgba(208, 203, 177, 0.9);
+      }
+
+      .project-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .meta-item h4 {
+        font-family: var(--font-primary);
+        color: var(--coffee-brown);
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        letter-spacing: 1px;
+      }
+
+      .meta-item p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: rgba(208, 203, 177, 0.8);
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .project-tag {
+        background: rgba(123, 90, 69, 0.2);
+        color: var(--cream-white);
+        padding: 0.6rem 1.2rem;
+        border-radius: 50px;
+        font-family: var(--font-secondary);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 1px solid rgba(123, 90, 69, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .project-tag:hover {
+        background: rgba(123, 90, 69, 0.4);
+      }
+
+      /* Key Features - Redesigned */
+      .feature-list {
+        list-style-type: none;
+        line-height: 2;
+      }
+
+      .feature-item {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+        color: rgba(208, 203, 177, 0.9);
+      }
+
+      .feature-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.8rem;
+        width: 1rem;
+        height: 1px;
+        background: var(--coffee-brown);
+      }
+
+      /* Media Gallery - Redesigned */
+
+      /* Project Links - Redesigned */
+      .project-links {
+        display: flex;
+        gap: 2rem;
+        margin-top: 4rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1.2rem 2.5rem;
+        background-color: var(--coffee-brown);
+        color: var(--cream-white);
+        font-family: var(--font-secondary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        min-width: 200px;
+      }
+
+      .project-link:hover {
+        background-color: var(--cream-white);
+        color: var(--coffee-brown);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Footer - Same as Homepage */
+      .contact-cta {
+        padding: 6rem 4rem;
+        text-align: center;
+        background-color: var(--deep-olive-black);
+        border-top: 1px solid rgba(123, 90, 69, 0.3);
+        position: relative;
+      }
+
+      .contact-cta h2 {
+        font-family: var(--font-primary);
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--cream-white);
+        letter-spacing: 1px;
+      }
+
+      .contact-cta p {
+        font-family: var(--font-secondary);
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        line-height: 1.6;
+        font-size: 1.1rem;
+        color: rgba(208, 203, 177, 0.8);
+      }
+
+      .contact-links {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+      }
+
+      .contact-links a {
+        color: var(--coffee-brown);
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact-links a:hover {
+        color: var(--cream-white);
+        transform: translateY(-5px);
+      }
+
+      /* Lightbox - Redesigned */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(5, 16, 11, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .lightbox.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        position: relative;
+      }
+
+      .lightbox-content img,
+      .lightbox-content video {
+        max-width: 100%;
+        max-height: 80vh;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: var(--cream-white);
+        font-size: 3rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .lightbox-close:hover {
+        color: var(--coffee-brown);
+        transform: rotate(90deg);
+      }
+
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        transform: translateY(-50%);
+      }
+
+      .lightbox-prev,
+      .lightbox-next {
+        color: var(--cream-white);
+        font-size: 3rem;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.3);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .lightbox-prev:hover,
+      .lightbox-next:hover {
+        background: rgba(123, 90, 69, 0.7);
+      }
+
+      .lightbox-caption {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: var(--cream-white);
+        font-size: 1.2rem;
+        padding: 10px;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 1200px) {
+        .project-header {
+          padding: 6rem 3rem 4rem;
+        }
+
+        .project-title {
+          font-size: 3.5rem;
+        }
+
+        .project-number {
+          font-size: 10rem;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .project-overview {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          padding: 1.5rem;
+        }
+
+        .nav-left {
+          display: none;
+        }
+
+        .logo {
+          font-size: 26px !important;
+        }
+
+        .nav-right i {
+          font-size: 24px !important;
+        }
+
+        .project-header {
+          padding: 5rem 2rem 3rem;
+        }
+
+        .project-title {
+          font-size: 2.5rem;
+        }
+
+        .project-number {
+          font-size: 6rem;
+        }
+
+        .project-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .project-container {
+          padding: 0 2rem 4rem;
+        }
+
+        .project-meta {
+          grid-template-columns: 1fr;
+        }
+
+        .project-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .project-link {
+          width: 100%;
+        }
+
+        .contact-cta {
+          padding: 4rem 2rem;
+        }
+
+        .contact-cta h2 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .project-title {
+          font-size: 2rem;
+        }
+
+        .project-number {
+          font-size: 4rem;
+        }
+
+        .contact-cta h2 {
+          font-size: 2rem;
+        }
+
+        .contact-links a {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar - Same as Homepage -->
+    <div class="nav">
+      <div class="nav-left">
+        <a href="contact.html" class="start-project-btn"> Start a Project </a>
+      </div>
+
+      <div class="nav-center">
+        <div class="logo" style="font-size: 28px">Felix Furtado</div>
+      </div>
+
+      <div class="nav-right">
+        <i class="fa-solid fa-bars" style="font-size: 28px"></i>
+      </div>
+    </div>
+
+    <!-- Project Header - Redesigned -->
+    <div class="project-header">
+      <div class="project-number">04</div>
+      <h1 class="project-title">Colleges Data Scraper</h1>
+      <h2 class="project-subtitle">Python (Selenium) + JSON</h2>
+    </div>
+
+    <div class="project-container">
+      <div class="project-overview">
+        <div class="project-details">
+          <h3>Project Overview</h3>
+          <p class="project-description">
+            A web scraper that collects detailed college ranking and fee
+            information from Careers360. Built using Python and Selenium, it
+            automates browser actions to extract college names, URLs, ownership
+            types, fees for B.Tech and M.Tech courses, and ratings. The scraped
+            data is saved in structured JSON format for easy consumption. This
+            project helps gather and organize up-to-date college data for
+            further analysis or integration with other systems. Simple,
+            efficient, and focused on delivering clean data with minimal
+            dependencies. Successfully scraped data for around 5,000 colleges
+            data.
+          </p>
+
+          <div class="project-meta">
+            <div class="meta-item">
+              <h4>Role</h4>
+              <p>Python Developer (Solo)</p>
+            </div>
+            <div class="meta-item">
+              <h4>Timeline</h4>
+              <p>1 day (2025)</p>
+            </div>
+            <div class="meta-item">
+              <h4>Technologies</h4>
+              <p>Python, Selenium, JSON</p>
+            </div>
+            <div class="meta-item">
+              <h4>Category</h4>
+              <p>Web Scraping / Data Collection</p>
+            </div>
+          </div>
+
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Selenium</span>
+            <span class="project-tag">Web Scraping</span>
+            <span class="project-tag">JSON</span>
+            <span class="project-tag">Automation</span>
+          </div>
+        </div>
+
+        <div class="project-details">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li class="feature-item">
+              Automated scraping of college data from multiple pages of
+              Careers360’s rankings site
+            </li>
+            <li class="feature-item">
+              Extracts college name, URL, ownership type, ratings, and fees
+              (B.Tech and M.Tech)
+            </li>
+            <li class="feature-item">
+              Handles dynamic content loading with appropriate wait times
+            </li>
+            <li class="feature-item">
+              Uses Selenium with Chrome WebDriver for browser automation and
+              data extraction
+            </li>
+            <li class="feature-item">
+              Supports pagination to scrape data from multiple result pages
+              seamlessly
+            </li>
+            <li class="feature-item">
+              Cleans and formats data, removing unwanted characters and newlines
+            </li>
+            <li class="feature-item">
+              Saves the scraped data as a neatly formatted JSON file for easy
+              consumption
+            </li>
+            <li class="feature-item">
+              Robust error handling to skip problematic entries without stopping
+              the whole process
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <style>
+        .project-gallery {
+          margin: 6rem 0;
+        }
+
+        .gallery-title {
+          font-family: var(--font-primary);
+          font-size: 2rem;
+          margin-bottom: 3rem;
+          letter-spacing: 1px;
+          text-align: center;
+          position: relative;
+        }
+
+        .gallery-title::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 2px;
+          background: var(--coffee-brown);
+        }
+
+        .gallery-flex {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          margin-bottom: 2rem;
+          justify-content: center;
+        }
+
+        .gallery-item {
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          flex: 1 1 calc(50% - 2rem); /* Two items per row by default */
+          min-width: 300px;
+          max-width: 100%;
+        }
+
+        .gallery-item:not(.video-item) {
+          height: 350px;
+        }
+
+        .gallery-item.video-item {
+          flex: 1 1 100%; /* Full width for video */
+        }
+
+        .gallery-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: contain; /* Show full image without cropping */
+        }
+
+        .gallery-caption {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 1.5rem;
+          background: linear-gradient(
+            to top,
+            rgba(5, 16, 11, 0.9),
+            rgba(5, 16, 11, 0.5)
+          );
+          font-size: 0.9rem;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+          opacity: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .gallery-item {
+            flex: 1 1 100%;
+          }
+          .gallery-item:not(.video-item) {
+            height: 200px;
+          }
+        }
+      </style>
+
+      <div class="project-gallery">
+        <h3 class="gallery-title">Project Gallery</h3>
+
+        <div class="gallery-flex">
+          <!-- First row items -->
+          <div class="gallery-item">
+            <img
+              src="Screenshot 2025-08-12 163904.png"
+              alt="AI Search Interface"
+              data-caption="Main interface showing AI search functionality"
+            />
+            <div class="gallery-caption">AI Search Interface</div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="Screenshot 2025-08-12 163934.png"
+              alt="Filter System"
+              data-caption="Dynamic filter system with removable chips"
+            />
+            <div class="gallery-caption">Filter System</div>
+          </div>
+
+    
+        </div>
+      </div>
+      <div class="project-links">
+
+        <a href="#" class="project-link">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
+        <a href="projects.html" class="project-link">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer - Same as Homepage -->
+    <section class="contact-cta">
+      <h2>READY TO COLLABORATE?</h2>
+      <p>
+        For freelance projects or engineering roles, reach me at<br />
+        <strong style="color: var(--coffee-brown)"
+          >felixfurtado809@gmail.com</strong
+        >
+      </p>
+      <div class="contact-links">
+        <a
+          href="https://github.com/felixfurtado"
+          target="_blank"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+
+        <a
+          href="https://linkedin.com/in/felixfurtado"
+          target="_blank"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+
+        <a href="tel:+97158925942" aria-label="Phone"
+          ><i class="fas fa-phone"></i
+        ></a>
+
+        <a
+          href="https://instagram.com/felizfurtado"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </section>
+
+    <!-- Lightbox - Redesigned -->
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-nav">
+        <div class="lightbox-prev">&larr;</div>
+        <div class="lightbox-next">&rarr;</div>
+      </div>
+      <div class="lightbox-content"></div>
+      <div class="lightbox-caption"></div>
+    </div>
+
+    <script>
+      // Lightbox functionality
+      const lightbox = document.getElementById("lightbox");
+      const lightboxContent = document.querySelector(".lightbox-content");
+      const lightboxCaption = document.querySelector(".lightbox-caption");
+      const lightboxClose = document.querySelector(".lightbox-close");
+      const lightboxPrev = document.querySelector(".lightbox-prev");
+      const lightboxNext = document.querySelector(".lightbox-next");
+
+      let currentIndex = 0;
+      let mediaItems = [];
+
+      // Get all gallery items
+      const galleryItems = document.querySelectorAll(".gallery-item");
+
+      galleryItems.forEach((item, index) => {
+        const img = item.querySelector("img");
+        const video = item.querySelector("video");
+        const caption = item.querySelector(".gallery-caption").textContent;
+
+        if (img || video) {
+          mediaItems.push({
+            element: img || video,
+            type: img ? "image" : "video",
+            src: img ? img.src : video.querySelector("source").src,
+            caption: caption,
+          });
+        }
+
+        // Add click event to each gallery item
+        item.addEventListener("click", () => {
+          openLightbox(index);
+        });
+      });
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+
+        // Pause video if playing
+        const video = lightboxContent.querySelector("video");
+        if (video) {
+          video.pause();
+        }
+      }
+
+      function updateLightbox() {
+        const item = mediaItems[currentIndex];
+        lightboxContent.innerHTML = "";
+        lightboxCaption.textContent = item.caption;
+
+        if (item.type === "image") {
+          const img = document.createElement("img");
+          img.src = item.src;
+          img.alt = item.caption;
+          lightboxContent.appendChild(img);
+        } else {
+          const video = document.createElement("video");
+          video.controls = true;
+          video.autoplay = true;
+          const source = document.createElement("source");
+          source.src = item.src;
+          source.type = "video/mp4";
+          video.appendChild(source);
+          lightboxContent.appendChild(video);
+        }
+      }
+
+      function navigate(direction) {
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+          currentIndex = mediaItems.length - 1;
+        } else if (currentIndex >= mediaItems.length) {
+          currentIndex = 0;
+        }
+
+        updateLightbox();
+      }
+
+      // Event listeners
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightboxPrev.addEventListener("click", () => navigate(-1));
+      lightboxNext.addEventListener("click", () => navigate(1));
+
+      // Close lightbox when clicking outside content
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (lightbox.classList.contains("active")) {
+          if (e.key === "Escape") {
+            closeLightbox();
+          } else if (e.key === "ArrowLeft") {
+            navigate(-1);
+          } else if (e.key === "ArrowRight") {
+            navigate(1);
+          }
+        }
+      });
+    </script>
+
+    <!-- Navigation Popup (Same as original) -->
+    <style>
+      .nav-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 16, 11, 0.98);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease;
+        overflow: hidden;
+      }
+
+      .nav-popup.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-popup-content {
+        width: 90%;
+        height: 90vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: 2rem;
+        gap: 1rem;
+        box-sizing: border-box;
+      }
+
+      .nav-popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+      }
+
+      .nav-popup-logo {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        color: var(--cream-white);
+        letter-spacing: 3px;
+      }
+
+      .nav-popup-close {
+        font-size: 2rem;
+        color: var(--cream-white);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-popup-close:hover {
+        transform: rotate(90deg);
+        color: var(--coffee-brown);
+      }
+
+      .nav-popup-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .nav-popup-link {
+        font-family: var(--font-primary);
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        color: var(--cream-white);
+        text-decoration: none;
+        line-height: 1;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+      }
+
+      .nav-popup-link:hover {
+        color: var(--coffee-brown);
+      }
+
+      .nav-popup-footer {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-popup-social {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-popup-social a {
+        color: var(--coffee-brown);
+        font-size: 2rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav-popup-social a:hover {
+        color: var(--cream-white);
+      }
+
+      @media (max-height: 700px) {
+        .nav-popup-link {
+          font-size: clamp(2rem, 5vh, 3rem);
+          padding: 0.3rem 0;
+        }
+        .nav-popup-links {
+          gap: 0.5vh;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-popup-content {
+          padding: 1.5rem;
+        }
+        .nav-popup-logo {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+
+    <div class="nav-popup" id="navPopup">
+      <div class="nav-popup-content">
+        <div class="nav-popup-header">
+          <div class="nav-popup-logo">FELIX FURTADO</div>
+          <div class="nav-popup-close" id="navClose">&times;</div>
+        </div>
+        <nav class="nav-popup-links">
+          <a href="index.html" class="nav-popup-link">Home</a>
+          <a href="resume.html" class="nav-popup-link">Resume</a>
+          <a href="projects.html" class="nav-popup-link">Projects</a>
+          <a href="contact.html" class="nav-popup-link">Contact</a>
+        </nav>
+        <div class="nav-popup-footer">
+          <div class="nav-popup-social">
+            <a href="https://github.com/felixfurtado" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://linkedin.com/in/felixfurtado" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="tel:+97158925942"><i class="fas fa-phone"></i></a>
+            <a href="https://instagram.com/felizfurtado" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navButton = document.querySelector(".nav-right i");
+        const navPopup = document.getElementById("navPopup");
+        const navClose = document.getElementById("navClose");
+
+        navButton.addEventListener("click", function () {
+          navPopup.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+
+        navClose.addEventListener("click", function () {
+          navPopup.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+
+        navPopup.addEventListener("click", function (e) {
+          if (e.target === navPopup) {
+            navPopup.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && navPopup.classList.contains("active")) {
+            navPopup.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
